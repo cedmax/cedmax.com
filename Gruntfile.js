@@ -10,20 +10,22 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-htmlrefs');
     grunt.loadNpmTasks('node-spritesheet');
 
+    var version = 1;
+
     grunt.initConfig({
         htmlrefs: {
             dist: {
                 src: 'src/index.html',
                 dest: '.',
                 options: {
-                    build: 6
+                    version: version
                 }
             }
         },
         copy: {
             main: {
                 files: [
-                    {expand: true, flatten: true, src: ['tmp/main.js'], dest: 'js/', filter: 'isFile'},
+                    {expand: true, flatten: true, src: ["tmp/main." +version+ ".js"], dest: 'js/', filter: 'isFile'},
                     {expand: true, flatten: true, src: ['src/js/lib/require.js'], dest: 'js/lib', filter: 'isFile'},
                     {expand: true, flatten: true, src: ['tmp/img/sprite.png'], dest: 'img', filter: 'isFile'},
                     {expand: true, flatten: true, src: ['src/img/*.*'], dest: 'img', filter: 'isFile'}
@@ -49,7 +51,7 @@ module.exports = function(grunt) {
                 options: {
                     optimize:"uglify2",
                     baseUrl: ".",
-                    out: "tmp/main.js",
+                    out: "tmp/main." +version+ ".js",
                     name:"src/js/main.js",
                     paths: {
                         'lib' : 'src/js/lib',
