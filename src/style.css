@@ -190,7 +190,8 @@ h3 {
 	text-align:left;
 	width:241px;
 	max-width:80%;
-	border-radius:12px 12px 12px 0
+	border-radius:12px 12px 12px 0;
+	overflow:hidden;
 }
 
 .backstretch-left #content {
