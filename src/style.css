@@ -184,7 +184,7 @@ h3 {
 
 #content {
 	position:absolute;
-	background:rgba(0,0,0,0.50);
+	background:rgba(0,0,0,0.40);
 	bottom:55px;
 	left:35px;
 	text-align:left;
@@ -214,9 +214,10 @@ h3 {
 	width:98%;
 	text-align:right;
 	font-size:72%;
-	background:rgba(0,0,0,0.8);
+	background:rgb(0,0,0);
 	color:#ddd;
-	padding:1px 1%
+	padding:1px 1%;
+	opacity:0.4;
 }
 
 .backstretch-left #footer {
