@@ -83,7 +83,7 @@
 .smoke {
 	text-align:center;
 	line-height:130%;
-	font-family:Rokkitt,arial,serif;
+	font-family:arial,serif;
 	text-transform:none;
 	color:#eee;
 	font-weight:400;
@@ -161,7 +161,7 @@ img {
 
 #services {
 	overflow:hidden;
-	padding:35px 30px 30px
+	padding:35px 30px 25px
 }
 
 ul,li {
@@ -174,8 +174,7 @@ li {
 	display:inline
 }
 
-h3 {
-	font-family:Vollkorn,serif;
+h1 {
 	font-size:250%;
 	left:-16px;
 	position:absolute;
