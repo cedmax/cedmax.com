@@ -1,3 +1,8 @@
+.scl {
+	display: inline-block;
+	margin:5px
+}
+
 #aToolTip {
 	position:absolute;
 	display:none;
@@ -24,7 +29,7 @@
 	display:block;
 	height:18px;
 	width:18px;
-	background:url(../images/closeBtn.png) no-repeat;
+	background:url(images/closeBtn.png) no-repeat;
 	text-indent:-9999px;
 	outline:0;
 	position:absolute;
@@ -78,7 +83,7 @@
 .smoke {
 	text-align:center;
 	line-height:130%;
-	font-family:Rokkitt,arial,serif;
+	font-family:arial,serif;
 	text-transform:none;
 	color:#eee;
 	font-weight:400;
@@ -135,7 +140,7 @@ button.cancel {
 	color:#222
 }
 
-* {
+div, ul, li, body, html, img, main, h1, h2, h3 {
 	margin:0;
 	padding:0
 }
@@ -156,7 +161,7 @@ img {
 
 #services {
 	overflow:hidden;
-	padding:35px 30px 30px
+	padding:35px 35px 25px
 }
 
 ul,li {
@@ -169,8 +174,7 @@ li {
 	display:inline
 }
 
-h3 {
-	font-family:Vollkorn,serif;
+h1 {
 	font-size:250%;
 	left:-16px;
 	position:absolute;
@@ -179,13 +183,14 @@ h3 {
 
 #content {
 	position:absolute;
-	background:rgba(0,0,0,0.50);
+	background:rgba(0,0,0,0.40);
 	bottom:55px;
 	left:35px;
 	text-align:left;
-	width:241px;
+	width:238px;
 	max-width:80%;
-	border-radius:12px 12px 12px 0
+	border-radius:12px 12px 12px 0;
+	overflow:hidden;
 }
 
 .backstretch-left #content {
@@ -195,16 +200,12 @@ h3 {
 	border-radius:12px 12px 0 12px
 }
 
-#content img {
-	margin:5px
-}
-
 .lanyrd-topbar {
 	display:none
 }
 
 #backstretch {
-	background:url(../img/progress.gif) no-repeat center center
+	background:url(img/progress.gif) no-repeat center center
 }
 
 #footer {
@@ -213,9 +214,10 @@ h3 {
 	width:98%;
 	text-align:right;
 	font-size:72%;
-	background:rgba(0,0,0,0.8);
+	background:rgb(0,0,0);
 	color:#ddd;
-	padding:1px 1%
+	padding:1px 1%;
+	opacity:0.4;
 }
 
 .backstretch-left #footer {
