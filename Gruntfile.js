@@ -27,7 +27,7 @@ module.exports = function(grunt) {
                 files: [
                     {expand: true, flatten: true, src: ["tmp/main." +version+ ".js"], dest: 'js/', filter: 'isFile'},
                     {expand: true, flatten: true, src: ['src/js/lib/require.js'], dest: 'js/lib', filter: 'isFile'},
-                    {expand: true, flatten: true, src: ['tmp/img/sprite.png'], dest: 'img', filter: 'isFile'},
+                    {expand: true, flatten: true, src: ['tmp/img/sprite.' +version+ '.png'], dest: 'img', filter: 'isFile'},
                     {expand: true, flatten: true, src: ['src/img/*.*'], dest: 'img', filter: 'isFile'}
                 ]
             }
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
             set: {
                 options: {
                     // Compiles to bin/assets/images/spritesheets/flags.png
-                    outputImage: 'img/sprite.png',
+                    outputImage: 'img/sprite.'+version+'.png',
                     // Compiles to bin/assets/stylesheets/flags.css
                     outputCss: 'icons.css',
                     selector: '.scl'
