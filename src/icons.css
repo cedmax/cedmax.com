@@ -88,6 +88,12 @@
   height: 32px;
 }
 
+.scl.beard-32x32 {
+  background: url('img/used-icons/beard-32x32.png');
+  width: 32px;
+  height: 32px;
+}
+
 .scl.website-32x32 {
   background: url('img/used-icons/website-32x32.png');
   width: 32px;
