@@ -10,7 +10,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-htmlrefs');
     grunt.loadNpmTasks('node-spritesheet');
 
-    var version = 1;
+    var version = 2;
 
     grunt.initConfig({
         htmlrefs: {
