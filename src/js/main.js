@@ -3,9 +3,10 @@
 require( [
 	'jquery',
 	'lib/smoke.min',
+	'lib/giflinks.min',
 	'lib/backstretch.min',
 	'lib/jrumble.min',
-	'lib/atooltip.min'
+	'lib/atooltip.min',
 ], function( $, smoke ) {
 	'use strict';
 
@@ -30,13 +31,19 @@ require( [
 		centeredY: false,
 		speed: 300
 	} );
+ 	
+ 	var isTouch = !!("undefined" != typeof document.documentElement.ontouchstart);
+ 	if (!isTouch){
+ 		GifLinks(document.querySelectorAll( '[data-src]' ), { preload: true });
+ 	}
+	
 
 	$( '#content a:not([class~="google" ])' ).aToolTip( {
 		xOffset: 15,
 		yOffset: -65
-	} ).jrumble();
+	} );
 
-	$( '# content a[ rel = smoke ]' ).click( function() {
+	$( '#content a[rel=smoke]' ).click( function() {
 		smoke.signal( 'see you soon...' );
 	} );
 } );

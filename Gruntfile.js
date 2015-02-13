@@ -51,19 +51,13 @@ module.exports = function( grunt ) {
 					src: [ 'src/img/*.*' ],
 					dest: 'img',
 					filter: 'isFile'
-				} ]
-			}
-		},
-		spritesheet: {
-			set: {
-				options: {
-					outputImage: 'img/sprite.' + version + '.png',
-					outputCss: 'icons.css',
-					selector: '.scl'
-				},
-				files: {
-					'tmp': 'src/img/used-icons/*.png'
-				}
+				}, {
+					expand: true,
+					flatten: true,
+					src: [ 'src/img/gif/*.*' ],
+					dest: 'img/gif',
+					filter: 'isFile'
+				}  ]
 			}
 		},
 		sprite: {
@@ -94,6 +88,9 @@ module.exports = function( grunt ) {
 						'lib/smoke.min': {
 							deps: [ 'jquery' ],
 							exports: 'smoke'
+						},
+						'lib/giflinks.min': {
+							exports: 'GifLinks'
 						}
 					}
 				}
