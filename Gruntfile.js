@@ -71,6 +71,7 @@ module.exports = function( grunt ) {
 				src: 'src/img/used-icons/*.png',
 				destImg: 'img/sprite.' + version + '.png',
 				destCSS: 'tmp/icons.css',
+				imgPath: 'img/sprite.' + version + '.png',
 				'cssOpts': {
 					'cssClass': function( item ) {
 						return '.scl.' + item.name;
