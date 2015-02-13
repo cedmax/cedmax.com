@@ -10,7 +10,7 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-htmlrefs' );
 	grunt.loadNpmTasks( 'grunt-spritesmith' );
 
-	var version = 3;
+	var version = 4;
 
 	grunt.initConfig( {
 		htmlrefs: {
