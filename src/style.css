@@ -229,3 +229,12 @@ h1 {
 a,a:visited {
 	color:#fff
 }
+
+div[style*='999999'] {
+	z-index: -1!important;
+}
+
+
+div[style*='-999999'] {
+	z-index: -999999!important;
+}
