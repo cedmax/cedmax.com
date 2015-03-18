@@ -16,7 +16,7 @@ module.exports = function( grunt ) {
 					imagesVersion: imagesVersion,
 					includes: {
 						bundle: './src/partials/scripts.html',
-						shareimg: './src/partials/shareimg.html'
+						meta: './src/partials/meta.html'
 					}
 				}
 			}
