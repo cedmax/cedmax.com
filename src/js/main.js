@@ -1,4 +1,4 @@
-/* global require */
+/* global require, version */
 
 require( [
 	'jquery',
@@ -11,15 +11,15 @@ require( [
 	'use strict';
 
 	var imgArray = [ {
-		name: 'me',
+		name: 'me.'+version,
 		align: 'left',
 		centeredX: false
 	}, {
-		name: 'me2',
+		name: 'me2.'+version,
 		align: 'right',
 		centeredX: false
 	}, {
-		name: 'me3',
+		name: 'me3.'+version,
 		align: 'right',
 		centeredX: true
 	} ];
