@@ -1,16 +1,9 @@
 module.exports = function( grunt ) {
 	'use strict';
+	
+	require('matchdep').filterDev('grunt-!(cli)').forEach(grunt.loadNpmTasks);
 
-	grunt.loadNpmTasks( 'grunt-contrib-htmlmin' );
-	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
-	grunt.loadNpmTasks( 'grunt-contrib-requirejs' );
-	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
-	grunt.loadNpmTasks( 'grunt-contrib-copy' );
-	grunt.loadNpmTasks( 'grunt-contrib-clean' );
-	grunt.loadNpmTasks( 'grunt-htmlrefs' );
-	grunt.loadNpmTasks( 'grunt-spritesmith' );
-
-	var version = 4;
+	var version = 5;
 
 	grunt.initConfig( {
 		htmlrefs: {
@@ -50,7 +43,10 @@ module.exports = function( grunt ) {
 					flatten: true,
 					src: [ 'src/img/*.*' ],
 					dest: 'img',
-					filter: 'isFile'
+					filter: 'isFile',
+					rename: function(dest, src) {
+						return dest +'/'+ src.replace('.jpg', '.'+ version+'.jpg');
+					}
 				}, {
 					expand: true,
 					flatten: true,
