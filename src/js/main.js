@@ -34,6 +34,10 @@ require( [
  	
  	var isTouch = !!("undefined" != typeof document.documentElement.ontouchstart);
  	if (!isTouch){
+ 		$('[data-src]').each(function(i, elm){
+ 			var dataSrc = $(elm).attr('data-src');
+ 			$(elm).attr('data-src', dataSrc.replace(/\.gif$/g, '.'+version +'.gif'));
+ 		});
  		GifLinks(document.querySelectorAll( '[data-src]' ), { preload: true });
  	}
 	
