@@ -1,6 +1,7 @@
 .scl {
 	display: inline-block;
-	margin:5px
+	margin:5px;
+	text-indent: -40em;
 }
 
 .scl.google-32x32 { position: absolute; top:-300px;}
