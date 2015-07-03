@@ -1,4 +1,4 @@
-/* global require, version */
+/* global require */
 
 require( [
 	'jquery',
@@ -10,16 +10,18 @@ require( [
 ], function( $, smoke ) {
 	'use strict';
 
+	var versioning = window.version?'.'+window.version:'';
+
 	var imgArray = [ {
-		name: 'me.'+version,
+		name: 'me'+versioning,
 		align: 'left',
 		centeredX: false
 	}, {
-		name: 'me2.'+version,
+		name: 'me2'+versioning,
 		align: 'right',
 		centeredX: false
 	}, {
-		name: 'me3.'+version,
+		name: 'me3'+versioning,
 		align: 'right',
 		centeredX: true
 	} ];
@@ -36,7 +38,7 @@ require( [
  	if (!isTouch){
  		$('[data-src]').each(function(i, elm){
  			var dataSrc = $(elm).attr('data-src');
- 			$(elm).attr('data-src', dataSrc.replace(/\.gif$/g, '.'+version +'.gif'));
+ 			$(elm).attr('data-src', dataSrc.replace(/\.gif$/g, versioning +'.gif'));
  		});
  		GifLinks(document.querySelectorAll( '[data-src]' ), { preload: true });
  	}
