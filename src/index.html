@@ -39,28 +39,55 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   </head>
   <body>
-    <main itemscope itemtype="http://data-vocabulary.org/Person" id="content">
-        <h1 itemprop="nickname">cedmax</h1>
-        <meta itemprop="name" content="Marco Cedaro" />
-        <meta itemprop="photo" content="http://cedmax.com/img/me4.jpg" />
-        <meta itemprop="title" content="Frontend Developer" />
-        <meta itemprop="affiliation" content="Shazam" />
-        <ul id="services">
-            <li><a class="scl twitter-32x32" data-src="img/gif/twitter.gif"  itemprop="url" href="http://twitter.com/cedmax" title="twitter" rel="smoke">Tweets</a></li>
-            <li><a class="scl facebook-32x32" data-src="img/gif/facebook.gif"  itemprop="url" href="http://www.facebook.com/cedmax/" title="facebook" rel="smoke">Facebook profile</a></li>
-            <li><a class="scl feed-32x32" data-src="img/gif/blog.gif"  itemprop="url" href="http://cedmax.net" title="cedmax.net" rel="smoke">I'm just a blog</a></li>
-            <li><a class="scl github-32x32" data-src="img/gif/coding.gif" itemprop="url" href="http://www.github.com/cedmax/" title="github" rel="smoke">Coding</a></li>            
-            <li><a class="scl speakerdeck-32x32" data-src="img/gif/speaking.gif"  itemprop="url" href="http://www.speakerdeck.com/cedmax/" title="speakerdeck" rel="smoke">Conferences slides</a></li>
-            <li><a class="scl linkedin-32x32" data-src="img/gif/work.gif" itemprop="url" href="http://www.linkedin.com/in/cedmax" title="linkedin" rel="smoke">Online resume</a></li>
-            <li><a class="scl lastfm-32x32" data-src="img/gif/guitar.gif" itemprop="url" href="http://www.last.fm/user/cedmax" title="last.fm" rel="smoke">All the music I listen to</a></li>
-            <li><a class="scl beard-32x32" data-src="img/gif/beard.gif" itemprop="url" href="http://bearded.net" title="beard?" rel="smoke">Too lazy to shave</a></li>
-            <li><a class="scl tumblr-32x32" data-src="img/gif/tumblr.gif" itemprop="url" href="http://karma.cedmax.net" title="tumblr" rel="smoke">Random images</a></li>
-            <li><a class="scl google-32x32" itemprop="url" rel="author" href="https://plus.google.com/u/0/114044087373499654432?rel=author" title="google plus" rel="smoke">Google plus, if anyone cares</a></li>
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Marco Cedaro",
+        "alternateName": "cedmax",
+        "image": "http://cedmax.com/img/me4.jpg",
+        "jobTitle": "Frontend Developer",
+        "memberOf": {
+            "@type": "Organization",
+            "name": "From The Front",
+            "url": "http://fromthefront.it"
+        }, 
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Shazam",
+            "url": "http://www.shazam.com"
+        },
+        "url":[
+            "http://twitter.com/cedmax",
+            "http://www.facebook.com/cedmax",
+            "http://cedmax.net",
+            "http://www.github.com/cedmax",
+            "http://www.speakerdeck.com/cedmax",
+            "http://www.linkedin.com/in/cedmax",
+            "http://www.last.fm/user/cedmax",
+            "http://bearded.net",
+            "http://karma.cedmax.net"
+        ]
+    }
+    </script>
+    <main>
+        <h1>cedmax</h1>
+        <ul>
+            <li><a class="scl twitter-32x32" data-src="img/gif/twitter.gif" href="http://twitter.com/cedmax" title="twitter" rel="smoke">Tweets</a></li>
+            <li><a class="scl facebook-32x32" data-src="img/gif/facebook.gif" href="http://www.facebook.com/cedmax" title="facebook" rel="smoke">Facebook profile</a></li>
+            <li><a class="scl feed-32x32" data-src="img/gif/blog.gif" href="http://cedmax.net" title="cedmax.net" rel="smoke">I'm just a blog</a></li>
+            <li><a class="scl github-32x32" data-src="img/gif/coding.gif" href="http://www.github.com/cedmax/" title="github" rel="smoke">Coding</a></li>
+            <li><a class="scl speakerdeck-32x32" data-src="img/gif/speaking.gif" href="http://www.speakerdeck.com/cedmax/" title="speakerdeck" rel="smoke">Conferences slides</a></li>
+            <li><a class="scl linkedin-32x32" data-src="img/gif/work.gif" href="http://www.linkedin.com/in/cedmax" title="linkedin" rel="smoke">Online resume</a></li>
+            <li><a class="scl lastfm-32x32" data-src="img/gif/guitar.gif" href="http://www.last.fm/user/cedmax" title="last.fm" rel="smoke">All the music I listen to</a></li>
+            <li><a class="scl beard-32x32" data-src="img/gif/beard.gif" href="http://bearded.net" title="beard?" rel="smoke">Too lazy to shave</a></li>
+            <li><a class="scl tumblr-32x32" data-src="img/gif/tumblr.gif" href="http://karma.cedmax.net" title="tumblr" rel="smoke">Random images</a></li>
+            <li><a class="scl google-32x32" rel="author" href="https://plus.google.com/u/0/114044087373499654432?rel=author" title="google plus" rel="smoke">Google plus, if anyone cares</a></li>
         </ul>
     </main>
 
-    <div id="footer">
+    <footer>
         icons by <a rel="nofollow" href="http://www.paulrobertlloyd.com/2009/06/social_media_icons/">Paul Robert LLoyd</a>
-    </div>
+    </footer>
   </body>
 </html>
