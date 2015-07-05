@@ -106,11 +106,11 @@ module.exports = function( grunt ) {
 				}
 			}
 		},
-		htmlmin: {
+		minifyHtml: {
+			options: {
+				quotes: true
+			},
 			dist: {
-				options: {
-					collapseWhitespace: true
-				},
 				files: {
 					'index.html': 'index.html'
 				}
@@ -119,5 +119,5 @@ module.exports = function( grunt ) {
 		clean: [ 'tmp' ]
 	} );
 
-	grunt.registerTask( 'default', [ 'requirejs', 'sprite', 'cssmin', 'copy', 'htmlrefs', 'htmlmin', 'clean' ] );
+	grunt.registerTask( 'default', [ 'requirejs', 'sprite', 'cssmin', 'copy', 'htmlrefs', 'minifyHtml', 'clean' ] );
 };

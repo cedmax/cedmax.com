@@ -162,7 +162,7 @@ img {
 	border:0
 }
 
-#services {
+main ul {
 	overflow:hidden;
 	padding:35px 35px 25px
 }
@@ -184,7 +184,7 @@ h1 {
 	top:-33px
 }
 
-#content {
+main {
 	position:absolute;
 	background:rgba(0,0,0,0.40);
 	bottom:55px;
@@ -196,7 +196,7 @@ h1 {
 	overflow:hidden;
 }
 
-.backstretch-left #content {
+.backstretch-left main {
 	bottom:55px;
 	right:35px;
 	left:auto;
@@ -211,7 +211,7 @@ h1 {
 	background:url(img/progress.gif) no-repeat center center
 }
 
-#footer {
+footer {
 	position:absolute;
 	bottom:0;
 	width:98%;
@@ -223,7 +223,7 @@ h1 {
 	opacity:0.4;
 }
 
-.backstretch-left #footer {
+.backstretch-left footer {
 	text-align:left
 }
 
