@@ -44,12 +44,12 @@ require( [
  	}
 	
 
-	$( '#content a:not([class~="google" ])' ).aToolTip( {
+	$( 'main a:not([class~="google" ])' ).aToolTip( {
 		xOffset: 15,
 		yOffset: -65
 	} );
 
-	$( '#content a[rel=smoke]' ).click( function() {
+	$( 'main a[rel=smoke]' ).click( function() {
 		smoke.signal( 'see you soon...' );
 	} );
 } );
