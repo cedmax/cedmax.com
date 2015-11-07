@@ -1,93 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <!-- ref:include meta -->
-    <!-- endref -->
-    
-    <!-- ref:remove -->
-        <script>
-            require = {
-                paths: {
-                    'jquery': 'lib/jquery-2.0.1.min'
-                },
-                shim: {
-                    'lib/smoke.min': {
-                        deps: ['jquery'],
-                        exports: 'smoke'
+    <head>
+        <meta charset="utf-8">
+        <!-- ref:include meta -->
+        <!-- endref -->
+        
+        <!-- ref:remove -->
+            <script>
+                require = {
+                    paths: {
+                        'jquery': 'lib/jquery-2.0.1.min'
+                    },
+                    shim: {
+                        'lib/close-pixelate.min': {
+                            exports: 'ClosePixelation'
+                        },
+                        'lib/webcredits.min': {
+                            exports: 'webCredits'
+                        },
+                        'lib/smoke.min': {
+                            exports: 'smoke'
+                        },
+                        'lib/giflinks.min': {
+                            deps: ['jquery'],
+                        },
+                        'lib/backstretch.min': {
+                            deps: ['jquery'],
+                        },
+                        'lib/jrumble.min': {
+                            deps: ['jquery'],
+                        },
+                        'lib/atooltip.min': {
+                            deps: ['jquery'],
+                        }
                     }
-                }
-            };
+                };
+            </script>
+            <script async defer data-main='js/main.js' src="js/lib/require.js"></script>
+        <!-- endref -->
+        
+        <!-- ref:include bundle -->
+        <!-- endref -->
+
+        <!-- ref:inlinecss tmp/fonts.css -->
+            <link type="text/css" rel="stylesheet" href="fonts.css" />
+        <!-- endref -->
+
+        <!-- ref:inlinecss tmp/style.css -->
+            <link type="text/css" rel="stylesheet" href="style.css" />
+        <!-- endref -->
+
+
+
+        <!-- ref:inlinecss tmp/icons.css -->
+            <link type="text/css" rel="stylesheet" href="icons.css" />
+        <!-- endref -->
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "Person",
+                "name": "Marco Cedaro",
+                "alternateName": "cedmax",
+                "image": "http://cedmax.com/img/me4.jpg",
+                "jobTitle": "Frontend Developer",
+                "memberOf": {
+                    "@type": "Organization",
+                    "name": "From The Front",
+                    "url": "http://fromthefront.it"
+                }, 
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Shazam",
+                    "url": "http://www.shazam.com"
+                },
+                "url":[
+                    "http://twitter.com/cedmax",
+                    "http://www.facebook.com/cedmax",
+                    "http://cedmax.net",
+                    "http://www.github.com/cedmax",
+                    "http://www.speakerdeck.com/cedmax",
+                    "http://www.linkedin.com/in/cedmax",
+                    "http://www.last.fm/user/cedmax",
+                    "http://bearded.net",
+                    "http://karma.cedmax.net"
+                ]
+            }
         </script>
-        <script async defer data-main='js/main.js' src="js/lib/require.js"></script>
-    <!-- endref -->
-    
-    <!-- ref:include bundle -->
-    <!-- endref -->
+        <header>
+            <nav>
+                <ul>
+                    <li><a class="scl twitter-32x32" data-src="img/gif/twitter.gif" href="http://twitter.com/cedmax" title="twitter" rel="smoke">Tweets</a></li>
+                    <li><a class="scl facebook-32x32" data-src="img/gif/facebook.gif" href="http://www.facebook.com/cedmax" title="facebook" rel="smoke">Facebook profile</a></li>
+                    <li><a class="scl feed-32x32" data-src="img/gif/blog.gif" href="http://cedmax.net" title="cedmax.net" rel="smoke">I'm just a blog</a></li>
+                    <li><a class="scl github-32x32" data-src="img/gif/coding.gif" href="http://www.github.com/cedmax/" title="github" rel="smoke">Coding</a></li>
+                    <li><a class="scl speakerdeck-32x32" data-src="img/gif/speaking.gif" href="http://www.speakerdeck.com/cedmax/" title="speakerdeck" rel="smoke">Conferences slides</a></li>
+                    <li><a class="scl linkedin-32x32" data-src="img/gif/work.gif" href="http://www.linkedin.com/in/cedmax" title="linkedin" rel="smoke">Online resume</a></li>
+                    <li><a class="scl lastfm-32x32" data-src="img/gif/guitar.gif" href="http://www.last.fm/user/cedmax" title="last.fm" rel="smoke">All the music I listen to</a></li>
+                    <li><a class="scl beard-32x32" data-src="img/gif/beard.gif" href="http://bearded.net" title="beard?" rel="smoke">Too lazy to shave</a></li>
+                    <li><a class="scl tumblr-32x32" data-src="img/gif/tumblr.gif" href="http://karma.cedmax.net" title="tumblr" rel="smoke">Random images</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h1>Marco Cedaro</h1>
+            <h3><em>Zombie Code Killer</em></h3>
+            <p class="bio">Front end developer since able to grow a beard, father of two, meteoropathic and with an insane passion for lo-fi music.<br/>Generates entropy, but with a decent test coverage.</p>
 
-    <!-- ref:inlinecss tmp/style.css -->
-        <link type="text/css" rel="stylesheet" href="style.css" />
-    <!-- endref -->
+            <ol class="flipper">
+                <li class="year flip-container">
+                    <div class="front">
+                        <span class="when">2015</span>
+                    </div>
+                    <ul class="what back">
+                        <li>Spoke @ Front Trends</li>
+                    </ul>
+                </li>
+                 <li class="year flip-container">
+                    <div class="front">
+                        <span class="when">2014</span>
+                    </div>
+                    <ul class="what back">
+                        <li>There is something about Death<br/>Like Love itself</li>
+                        <li><small>Edgar Lee Masters</small></li>
+                    </ul>
+                </li>
+                <li class="year flip-container">
+                    <div class="front">
+                        <span class="when">2013</span>
+                    </div>
+                    <ul class="what back">
+                        <li><svg xmlns="http://www.w3.org/2000/svg" width="50" height="auto" viewBox="0 0 320 340"><path fill="#fff" d="M60.5 200.5h200v120h-200v-120z"/><path fill="#f38c1d" d="M85 200h175V60H60v140h25m177.5 20H280V80h-20v140h2.5m-220 0H60V80H40v140h2.5m240 0H300V120h-20v100h2.5m-260 0H40V120H20v100h2.5M200 60V20h-80v40h80z"/><path d="M100 0h120v20H100V0m100 20h60v20h-60V20m40 20v20h40V40h-40m20 20v20h40V60h-40m20 20v40h20V80h-20m20 20h20v120h-20V100M60 20h60v20H60V20M40 40v20h40V40H40M20 60v20h40V60H20m0 20v40h20V80H20M0 100h20v120H0V100m0 120h80v20H0v-20m240 0h80v20h-80v-20M60 200h200v20H60v-20m-40 40h40v20H20v-20m240 0h40v20h-40v-20M40 260h20v60H40v-60m220 0h20v60h-20v-60M60 300h20v40H60v-40m180 0h20v40h-20v-40m-60-80h20v40h-20v-40m-60 0h20v40h-20v-40M80 320h160v20H80v-20z"/><path fill="#ce0c02" d="M80 160v-60H60V80H40v40H20v60h40v-20m240 20v-60h-20V80h-20v20h-20v60h20v20M140 60V20h-20v20H80v40h40V60m100 20h20V40h-40V20h-20v40h20v20m0 120V100h-80v20h-20v60h20v20m80-80h20v60h-20v-60"/></svg></li>
+                    </ul>
+                </li>
+                <li class="year flip-container">
+                    <div class="front">
+                        <span class="when">2012</span>
+                    </div>
+                    <ul class="what back">
+                        <li>Software Developer @ Shazam</li>
+                        <li><small>Enabled wife points</small></li>
+                    </ul>
+                </li>
+                <li class="year flip-container">
+                    <div class="front">
+                        <span class="when">2011</span>
+                    </div>
+                    <ul class="what back">
+                        <li>From the Front was founded</li>
+                        <li>Front End developer @ Spreaker</li>
+                    </ul>
+                </li>
+                <li class="year flip-container">
+                    <div class="front">
+                        <span class="when">2010</span>
+                    </div>
+                    <ul class="what back">
+                        <li>Doubled Fatherhood points</li>
+                        <li><small>the year we won everything</small></li>
+                    </ul>
+                </li>
+                <li class="year flip-container">
+                    <div class="front">
+                        <span class="when">2009</span>
+                    </div>
+                    <ul class="what back">
+                        <li>Yoox Group Javascript Lead</li>
+                    </ul>
+                </li>
+                <li class="year flip-container">
+                    <div class="front">
+                        <span class="when">2008</span>
+                    </div>
+                    <ul class="what back">
+                        <li><svg xmlns="http://www.w3.org/2000/svg" width="50" height="auto" viewBox="0 0 320 340"><path fill="#fff" d="M60.5 200.5h200v120h-200v-120z"/><path fill="#52C618" d="M85 200h175V60H60v140h25m177.5 20H280V80h-20v140h2.5m-220 0H60V80H40v140h2.5m240 0H300V120h-20v100h2.5m-260 0H40V120H20v100h2.5M200 60V20h-80v40h80z"/><path d="M100 0h120v20H100V0m100 20h60v20h-60V20m40 20v20h40V40h-40m20 20v20h40V60h-40m20 20v40h20V80h-20m20 20h20v120h-20V100M60 20h60v20H60V20M40 40v20h40V40H40M20 60v20h40V60H20m0 20v40h20V80H20M0 100h20v120H0V100m0 120h80v20H0v-20m240 0h80v20h-80v-20M60 200h200v20H60v-20m-40 40h40v20H20v-20m240 0h40v20h-40v-20M40 260h20v60H40v-60m220 0h20v60h-20v-60M60 300h20v40H60v-40m180 0h20v40h-20v-40m-60-80h20v40h-20v-40m-60 0h20v40h-20v-40M80 320h160v20H80v-20z"/><path fill="#fff" d="M80 160v-60H60V80H40v40H20v60h40v-20m240 20v-60h-20V80h-20v20h-20v60h20v20M140 60V20h-20v20H80v40h40V60m100 20h20V40h-40V20h-20v40h20v20m0 120V100h-80v20h-20v60h20v20m80-80h20v60h-20v-60"/></svg></li>
+                    </ul>
+                </li>
+                <li class="year flip-container">
+                    <div class="front">
+                        <span class="when">2007</span>
+                    </div>
+                    <ul class="what back">
+                        <li>Fatherhood achievement unlocked</li>
+                        <li><small>Yoox.com<br/>Team Lead</small></li>
+                    </ul>
+                </li>
+                <li class="year flip-container">
+                    <div class="front">
+                        <span class="when">2006</span>
+                    </div>
+                    <ul class="what back">
+                        <li>Front end Developer @ Yoox Group <br></li>
+                        <li><small>2 days after the world cup</small></li>
+                    </ul>
+                </li>
+                <li class="year flip-container">
+                    <div class="front">
+                        <span class="when">2005</span>
+                    </div>
+                    <ul class="what back">
+                        <li>Wolf Parade released Apologies to the Queen Mary</li>
+                    </ul>
+                </li>
+                <li class="year personal flip-container">
+                    <div class="front">
+                        <span class="when">2004</span>
+                    </div>
+                    <ul class="what back">
+                        <li>Fullstack Developer @ MagicNet</li>
+                    </ul>
+                </li>
+                <li class="year year--filler"></li>
+                <li class="year year--filler"></li>
+                <li class="year year--filler"></li>
+                <li class="year year--filler"></li> 
+                <li class="year year--filler"></li>
+                <li class="year year--filler"></li>
+                <li class="year year--filler"></li>
+                <li class="year year--filler"></li>
+            </ol>
 
-    <!-- ref:inlinecss tmp/icons.css -->
-        <link type="text/css" rel="stylesheet" href="icons.css" />
-    <!-- endref -->
-    
-    <meta http-equiv="X-UA-Compatible" content="IE=8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-  </head>
-  <body>
-    <script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "Person",
-        "name": "Marco Cedaro",
-        "alternateName": "cedmax",
-        "image": "http://cedmax.com/img/me4.jpg",
-        "jobTitle": "Frontend Developer",
-        "memberOf": {
-            "@type": "Organization",
-            "name": "From The Front",
-            "url": "http://fromthefront.it"
-        }, 
-        "worksFor": {
-            "@type": "Organization",
-            "name": "Shazam",
-            "url": "http://www.shazam.com"
-        },
-        "url":[
-            "http://twitter.com/cedmax",
-            "http://www.facebook.com/cedmax",
-            "http://cedmax.net",
-            "http://www.github.com/cedmax",
-            "http://www.speakerdeck.com/cedmax",
-            "http://www.linkedin.com/in/cedmax",
-            "http://www.last.fm/user/cedmax",
-            "http://bearded.net",
-            "http://karma.cedmax.net"
-        ]
-    }
-    </script>
-    <main>
-        <h1>cedmax</h1>
-        <ul>
-            <li><a class="scl twitter-32x32" data-src="img/gif/twitter.gif" href="http://twitter.com/cedmax" title="twitter" rel="smoke">Tweets</a></li>
-            <li><a class="scl facebook-32x32" data-src="img/gif/facebook.gif" href="http://www.facebook.com/cedmax" title="facebook" rel="smoke">Facebook profile</a></li>
-            <li><a class="scl feed-32x32" data-src="img/gif/blog.gif" href="http://cedmax.net" title="cedmax.net" rel="smoke">I'm just a blog</a></li>
-            <li><a class="scl github-32x32" data-src="img/gif/coding.gif" href="http://www.github.com/cedmax/" title="github" rel="smoke">Coding</a></li>
-            <li><a class="scl speakerdeck-32x32" data-src="img/gif/speaking.gif" href="http://www.speakerdeck.com/cedmax/" title="speakerdeck" rel="smoke">Conferences slides</a></li>
-            <li><a class="scl linkedin-32x32" data-src="img/gif/work.gif" href="http://www.linkedin.com/in/cedmax" title="linkedin" rel="smoke">Online resume</a></li>
-            <li><a class="scl lastfm-32x32" data-src="img/gif/guitar.gif" href="http://www.last.fm/user/cedmax" title="last.fm" rel="smoke">All the music I listen to</a></li>
-            <li><a class="scl beard-32x32" data-src="img/gif/beard.gif" href="http://bearded.net" title="beard?" rel="smoke">Too lazy to shave</a></li>
-            <li><a class="scl tumblr-32x32" data-src="img/gif/tumblr.gif" href="http://karma.cedmax.net" title="tumblr" rel="smoke">Random images</a></li>
-            <li><a class="scl google-32x32" rel="author" href="https://plus.google.com/u/0/114044087373499654432?rel=author" title="google plus" rel="smoke">Google plus, if anyone cares</a></li>
-        </ul>
-    </main>
+        </main>
+        <footer>
+           <div class="credits">
+                <div class="credits__title full-screen">
+                    <div><h1>Credits</h1></div>
+                </div>
 
-    <footer>
-        icons by <a rel="nofollow" href="http://www.paulrobertlloyd.com/2009/06/social_media_icons/">Paul Robert LLoyd</a>
-    </footer>
-  </body>
+                <section class="credits__block">
+                    <h3>Javascript Libraries</h3>
+                    <div>
+                       <a target="_blank" href="https://github.com/ItsMeAra/aToolTip">aTooltip</a><br/>
+                       <a target="_blank" href="https://github.com/srobbin/jquery-backstretch">BackStretch</a><br/>
+                       <a target="_blank" href="https://github.com/namuol/cheet.js">CheetJs</a><br/>
+                       <a target="_blank" href="https://github.com/desandro/close-pixelate">Close Pixelate</a><br/>
+                       <a target="_blank" href="https://github.com/tholman/giflinks">GifLinks</a><br/>
+                       <a target="_blank" href="https://github.com/jquery/jquery">jQuery</a><br/>
+                       <a target="_blank" href="https://github.com/jrburke/almond">AlmondJs</a><br/>
+                       <a target="_blank" href="https://github.com/hxgf/smoke.js">SmokeJs</a><br/>
+                       <a target="_blank" href="https://github.com/felipenmoura/web-credits">WebCredits</a>
+                    </div>
+                </section>
+
+                <section class="credits__block">
+                    <h3>Icon and Images</h3>
+                    <div>
+                        <a target="_blank" href="https://github.com/paulrobertlloyd/socialmediaicons">Icons</a><br/>
+                        <a target="_blank" href="https://giphy.com">Animated Gifs</a>
+                    </div>
+                </section>
+
+                <section class="credits__block">
+                    <h3>Tune</h3>
+                    <div>
+                        <a target="_blank" href="https://freemusicarchive.org/music/Rolemusic/~/Besos_y_Abrazos">Besos y Abrazos<br/><small>by Rolemusic</small></a>
+                    </div>
+                </section>  
+
+                <section class="full-screen">
+                    <div>
+                        <!-- ref:remove -->
+                            <img src="img/me_close.jpg">
+                        <!-- endref -->
+        
+                        <!-- ref:include closeimg -->
+                        <!-- endref -->
+                    </div>
+                </section>
+           </div>
+        </footer>
+    </body>
 </html>
