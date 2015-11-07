@@ -121,10 +121,10 @@ ol {
 	height: 0;margin-top:0;margin-bottom: 0
 }
 
-.year:nth-child(1n) .front { background:#FF548F;}
-.year:nth-child(2n) .front { background:#9061C2;}
-.year:nth-child(3n) .front { background:#BA0C00;}
-.year:nth-child(4n) .front { background:#FFB03B;}
+.year:nth-child(5n-4) .front { background:#FF548F;}
+.year:nth-child(5n-3) .front { background:#9061C2;}
+.year:nth-child(5n-2) .front { background:#BA0C00;}
+.year:nth-child(5n-1) .front { background:#FFB03B;}
 .year:nth-child(5n) .front { background:#02779E;}
 
 .when {
