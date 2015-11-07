@@ -3,7 +3,7 @@ module.exports = function( grunt ) {
 
 	require('matchdep').filterDev('grunt-!(cli)').forEach(grunt.loadNpmTasks);
 
-	var assetsVersion = 9;
+	var assetsVersion = 10;
 	var imagesVersion = 1;
 
 	grunt.initConfig( {
