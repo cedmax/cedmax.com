@@ -16,7 +16,8 @@ module.exports = function( grunt ) {
 					imagesVersion: imagesVersion,
 					includes: {
 						bundle: './src/partials/scripts.html',
-						meta: './src/partials/meta.html'
+						meta: './src/partials/meta.html',
+						closeimg: './src/partials/closeimg.html'
 					}
 				}
 			}
@@ -34,6 +35,12 @@ module.exports = function( grunt ) {
 					flatten: true,
 					src: [ 'src/js/lib/almond.js' ],
 					dest: 'js/lib',
+					filter: 'isFile'
+				}, {
+					expand: true,
+					flatten: true,
+					src: [ 'src/media/*' ],
+					dest: 'media',
 					filter: 'isFile'
 				}, {
 					expand: true,
@@ -87,14 +94,25 @@ module.exports = function( grunt ) {
 						'jquery': 'src/js/lib/jquery-2.0.1.min'
 					},
 					shim: {
-						'lib/smoke.min': {
-							deps: [ 'jquery' ],
-							exports: 'smoke'
-						},
-						'lib/giflinks.min': {
-							exports: 'GifLinks'
-						}
-					}
+                        'lib/webcredits.min': {
+                            exports: 'webCredits'
+                        },
+                        'lib/smoke.min': {
+                            exports: 'smoke'
+                        },
+                        'lib/giflinks.min': {
+                            deps: ['jquery'],
+                        },
+                        'lib/backstretch.min': {
+                            deps: ['jquery'],
+                        },
+                        'lib/jrumble.min': {
+                            deps: ['jquery'],
+                        },
+                        'lib/atooltip.min': {
+                            deps: ['jquery'],
+                        }
+                    }
 				}
 			}
 		},
@@ -102,7 +120,8 @@ module.exports = function( grunt ) {
 			combine: {
 				files: {
 					'tmp/style.css': [ 'src/style.css' ],
-					'tmp/icons.css': [ 'tmp/icons.css' ]
+					'tmp/icons.css': [ 'tmp/icons.css' ],
+					'tmp/fonts.css': [ 'src/fonts.css' ]
 				}
 			}
 		},
@@ -116,8 +135,14 @@ module.exports = function( grunt ) {
 				}
 			}
 		},
+		autoprefixer:{
+            default: {
+                src: 'tmp/style.css',
+                dest: 'tmp/style.css'
+            },
+        },
 		clean: [ 'tmp' ]
 	} );
 
-	grunt.registerTask( 'default', [ 'requirejs', 'sprite', 'cssmin', 'copy', 'htmlrefs', 'minifyHtml', 'clean' ] );
+	grunt.registerTask( 'default', [ 'requirejs', 'sprite', 'cssmin', 'autoprefixer', 'copy', 'htmlrefs', 'minifyHtml', 'clean' ] );
 };
