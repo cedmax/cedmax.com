@@ -116,4 +116,8 @@ require( [
 		webCredits.init($('.credits').html());
 	});
 
+	if (navigator.serviceWorker) {
+		navigator.serviceWorker.register('/service-worker.js');
+	}
+
 } );

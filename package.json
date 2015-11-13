@@ -20,6 +20,7 @@
     "grunt-minify-html": "^2.0.0",
     "grunt-spritesmith": "^2.20.0",
     "matchdep": "^0.3.0",
-    "grunt-autoprefixer": "^3.0.3"
+    "grunt-autoprefixer": "^3.0.3",
+    "sw-precache": "^2.2.0"
   }
 }
