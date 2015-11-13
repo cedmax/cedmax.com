@@ -2,18 +2,47 @@ module.exports = function( grunt ) {
 	'use strict';
 
 	require('matchdep').filterDev('grunt-!(cli)').forEach(grunt.loadNpmTasks);
+	var swPrecache = require('sw-precache');
+	var path = require('path');
+	
+	var cacheVersion = 3;
 
-	var assetsVersion = 10;
-	var imagesVersion = 1;
+	grunt.registerMultiTask('swPrecache', function(){
+		var done = this.async();
+		var config = this.data;
+
+		writeServiceWorkerFile(config, function(error) {
+			if (error) {
+				grunt.fail.warn(error);
+			}
+			done();
+		});
+	});
+
+	function writeServiceWorkerFile(config, callback) {
+		var config = {
+			addCacheBuster:false,
+			cacheId: cacheVersion,
+			logger: grunt.log.writeln,
+			staticFileGlobs: config.src
+		};
+
+		swPrecache.write(path.join('./', 'service-worker.js'), config, callback);
+	}
+
 
 	grunt.initConfig( {
+		swPrecache: {
+			dev: {
+				src: ['js/lib/almond.js', 'js/main.'+cacheVersion+'.js', 'img/*', 'index.html' ]
+			}
+		},
 		htmlrefs: {
 			dist: {
 				src: 'src/index.html',
 				dest: 'index.html',
 				options: {
-					assetsVersion: assetsVersion,
-					imagesVersion: imagesVersion,
+					cacheVersion: cacheVersion,
 					includes: {
 						bundle: './src/partials/scripts.html',
 						meta: './src/partials/meta.html',
@@ -27,7 +56,7 @@ module.exports = function( grunt ) {
 				files: [ {
 					expand: true,
 					flatten: true,
-					src: [ 'tmp/main.' + assetsVersion + '.js' ],
+					src: [ 'tmp/main.' + cacheVersion + '.js' ],
 					dest: 'js/',
 					filter: 'isFile'
 				}, {
@@ -45,7 +74,7 @@ module.exports = function( grunt ) {
 				}, {
 					expand: true,
 					flatten: true,
-					src: [ 'tmp/img/sprite.' + imagesVersion + '.png' ],
+					src: [ 'tmp/img/sprite.' + cacheVersion + '.png' ],
 					dest: 'img',
 					filter: 'isFile'
 				}, {
@@ -55,7 +84,7 @@ module.exports = function( grunt ) {
 					dest: 'img',
 					filter: 'isFile',
 					rename: function(dest, src) {
-						return dest +'/'+ src.replace('.jpg', '.'+ imagesVersion+'.jpg');
+						return dest +'/'+ src.replace('.jpg', '.'+ cacheVersion+'.jpg');
 					}
 				}, {
 					expand: true,
@@ -64,7 +93,7 @@ module.exports = function( grunt ) {
 					dest: 'img/gif',
 					filter: 'isFile',
 					rename: function(dest, src) {
-						return dest +'/'+ src.replace('.gif', '.'+ imagesVersion+'.gif');
+						return dest +'/'+ src.replace('.gif', '.'+ cacheVersion+'.gif');
 					}
 				}  ]
 			}
@@ -72,9 +101,9 @@ module.exports = function( grunt ) {
 		sprite: {
 			all: {
 				src: 'src/img/used-icons/*.png',
-				destImg: 'img/sprite.' + imagesVersion + '.png',
+				destImg: 'img/sprite.' + cacheVersion + '.png',
 				destCSS: 'tmp/icons.css',
-				imgPath: 'img/sprite.' + imagesVersion + '.png',
+				imgPath: 'img/sprite.' + cacheVersion + '.png',
 				'cssOpts': {
 					'cssClass': function( item ) {
 						return '.scl.' + item.name;
@@ -87,7 +116,7 @@ module.exports = function( grunt ) {
 				options: {
 					optimize: 'uglify2',
 					baseUrl: '.',
-					out: 'tmp/main.' + assetsVersion + '.js',
+					out: 'tmp/main.' + cacheVersion + '.js',
 					name: 'src/js/main.js',
 					paths: {
 						'lib': 'src/js/lib',
@@ -141,8 +170,11 @@ module.exports = function( grunt ) {
                 dest: 'tmp/style.css'
             },
         },
-		clean: [ 'tmp' ]
+		clean: {
+			tmp: [ 'tmp' ],
+			reset: ['media', 'img', 'js', 'service-worker.js', 'index.html']
+		} 
 	} );
 
-	grunt.registerTask( 'default', [ 'requirejs', 'sprite', 'cssmin', 'autoprefixer', 'copy', 'htmlrefs', 'minifyHtml', 'clean' ] );
+	grunt.registerTask( 'default', [ 'requirejs', 'sprite', 'cssmin', 'autoprefixer', 'copy', 'htmlrefs', 'minifyHtml', 'clean:tmp', 'swPrecache' ] );
 };
