@@ -5,7 +5,7 @@ module.exports = function( grunt ) {
 	var swPrecache = require('sw-precache');
 	var path = require('path');
 	
-	var cacheVersion = 3;
+	var cacheVersion = 4;
 
 	grunt.registerMultiTask('swPrecache', function(){
 		var done = this.async();
