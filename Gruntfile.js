@@ -45,6 +45,7 @@ module.exports = function( grunt ) {
 					cacheVersion: cacheVersion,
 					includes: {
 						bundle: './src/partials/scripts.html',
+						schema: './src/partials/schema.html',
 						meta: './src/partials/meta.html',
 						closeimg: './src/partials/closeimg.html'
 					}
