@@ -4,7 +4,7 @@ module.exports = function( grunt ) {
 	require('matchdep').filterDev('grunt-!(cli)').forEach(grunt.loadNpmTasks);
 	var swPrecache = require('sw-precache');
 	var path = require('path');
-	
+
 	var cacheVersion = 10;
 
 	grunt.registerMultiTask('swPrecache', function(){
@@ -124,25 +124,25 @@ module.exports = function( grunt ) {
 						'jquery': 'src/js/lib/jquery-2.0.1.min'
 					},
 					shim: {
-                        'lib/webcredits.min': {
-                            exports: 'webCredits'
-                        },
-                        'lib/smoke.min': {
-                            exports: 'smoke'
-                        },
-                        'lib/giflinks.min': {
-                            deps: ['jquery'],
-                        },
-                        'lib/backstretch.min': {
-                            deps: ['jquery'],
-                        },
-                        'lib/jrumble.min': {
-                            deps: ['jquery'],
-                        },
-                        'lib/atooltip.min': {
-                            deps: ['jquery'],
-                        }
-                    }
+						'lib/webcredits.min': {
+							exports: 'webCredits'
+						},
+						'lib/smoke.min': {
+							exports: 'smoke'
+						},
+						'lib/giflinks.min': {
+							deps: ['jquery'],
+						},
+						'lib/backstretch.min': {
+							deps: ['jquery'],
+						},
+						'lib/jrumble.min': {
+							deps: ['jquery'],
+						},
+						'lib/atooltip.min': {
+							deps: ['jquery'],
+						}
+					}
 				}
 			}
 		},
@@ -166,15 +166,15 @@ module.exports = function( grunt ) {
 			}
 		},
 		autoprefixer:{
-            default: {
-                src: 'tmp/style.css',
-                dest: 'tmp/style.css'
-            },
-        },
+			default: {
+				src: 'tmp/style.css',
+				dest: 'tmp/style.css'
+			},
+		},
 		clean: {
 			tmp: [ 'tmp' ],
 			reset: ['media', 'img', 'js', 'service-worker.js', 'index.html']
-		} 
+		}
 	} );
 
 	grunt.registerTask( 'default', [ 'requirejs', 'sprite', 'cssmin', 'autoprefixer', 'copy', 'htmlrefs', 'minifyHtml', 'clean:tmp', 'swPrecache' ] );
