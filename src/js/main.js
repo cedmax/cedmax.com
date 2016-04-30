@@ -38,7 +38,7 @@ require( [
 		return function() {
 			return reqAnimFrame(callback);
 		};
-	}	
+	}
 
 	function resizeAndPositionCanvas(referenceImg){
 		return function(){
@@ -53,16 +53,16 @@ require( [
 	}
 
 	$(window).on("backstretch.after", function (e, instance, index) {
-		
+
 		var img = instance.$img.clone();
 		var ratio = img.width() / img.height();
-		
+
 		img.appendTo('main').get(0).closePixelate( [
 	        { resolution: 18, width: $(document).width() + 'px', height: (ratio * img.width()) + 'px' }
 	    ] );
 		var func = resizeAndPositionCanvas(instance.$img.get(0));
 		func();
-		
+
 		$(window).on('scroll resize', throttle(func));
 	});
 
@@ -74,15 +74,15 @@ require( [
 		speed: 300
 	} );
 
- 	var isTouch = ('ontouchstart' in document.documentElement);
- 	if (!isTouch){
- 		$('[data-src]').each(function(i, elm){
- 			var dataSrc = $(elm).attr('data-src');
- 			$(elm).attr('data-src', dataSrc.replace(/\.gif$/g, versioning +'.gif'));
- 		});
- 		new GifLinks(document.querySelectorAll( '[data-src]' ), { preload: true });
- 	}
-	
+	var isTouch = ('ontouchstart' in document.documentElement);
+	if (!isTouch){
+		$('[data-src]').each(function(i, elm){
+			var dataSrc = $(elm).attr('data-src');
+			$(elm).attr('data-src', dataSrc.replace(/\.gif$/g, versioning +'.gif'));
+		});
+		new GifLinks(document.querySelectorAll( '[data-src]' ), { preload: true });
+	}
+
 	$( 'nav a:not([class~="google" ])' ).aToolTip( {
 		xOffset: 15,
 		yOffset: -65
@@ -91,7 +91,7 @@ require( [
 	$( 'nav a[rel=smoke]' ).click( function(e) {
 		smoke.signal( 'see you soon...' );
 	} );
-	
+
 	$( smoke.bodyload );
 
 	cheet('c e d m a x', function(){
@@ -99,7 +99,7 @@ require( [
 		var audio = document.createElement('audio');
 		audio.innerHTML = '<source src="media/Rolemusic_Besos_y_Abrazos.mp3"/>';
 		audio.play();
-	
+
 		webCredits.onend= function(){
 			$(document.body).css('overflow', 'initial');
 			var fadeout = setInterval(function() {
