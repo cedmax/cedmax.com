@@ -54,12 +54,12 @@ require( [
 
 	function renderSvg(referenceImg){
 		var img = $(referenceImg);
-		$('<svg/>').appendTo($('header'))
+		$('<svg id="ced"/>').appendTo($('header'))
 
 		return function(){
 			var imgWidth = img.width();
 			var imgHeight = img.height();
-			var svg = $('svg');
+			var svg = $('svg#ced');
 			var offset = svg.offset();
 			var svgWidth = svg.width();
 			var svgHeight = svg.height();
@@ -74,8 +74,8 @@ require( [
 			var patternLeft = (parseInt(img.css('left').replace('px', '')) - offset.left)*ratio;
 
 			svg.replaceWith(
-				'<svg style="height:'+ height +'" viewBox="0 0 450 362"><pattern id="mypattern" patternUnits="userSpaceOnUse" width="' +
-					patternWidth + '" height="' +  patternHeight + '"><svg style="height:'+ height +'"><image width="'+
+				'<svg id="ced" style="height:'+ height +'" viewBox="0 0 450 362"><pattern id="mypattern" patternUnits="userSpaceOnUse" width="' +
+					patternWidth + '" height="' +  patternHeight + '"><svg id="innerced" style="height:'+ height +'"><image width="'+
 					patternWidth +'" height="'+ patternHeight + '" xlink:href="' +
 					img.attr('src') + '" x="'+ patternLeft +
 					'" y="'+ patternTop +'"></image></pattern>'+
