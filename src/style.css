@@ -37,7 +37,7 @@ a,a:visited {
 	color:#fff
 }
 
-svg {
+svg#ced, svg#innerced {
 	width: 450px;
 	height: 362px;
 	max-width: 90%;
