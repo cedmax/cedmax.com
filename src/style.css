@@ -46,6 +46,9 @@ svg#ced, svg#innerced {
 	left:50%;
 	transform:translate3d(-50%,-50%,0);
 }
+.hide-svg svg#ced, .hide-svg svg#innerced {
+	display: none;
+}
 
 /*
 	### MAIN ###
