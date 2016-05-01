@@ -177,5 +177,5 @@ module.exports = function( grunt ) {
 		}
 	} );
 
-	grunt.registerTask( 'default', [ 'requirejs', 'sprite', 'cssmin', 'autoprefixer', 'copy', 'htmlrefs', 'minifyHtml', 'clean:tmp', 'swPrecache' ] );
+	grunt.registerTask( 'default', [ 'clean:reset', 'requirejs', 'sprite', 'cssmin', 'autoprefixer', 'copy', 'htmlrefs', 'minifyHtml', 'clean:tmp', 'swPrecache' ] );
 };
