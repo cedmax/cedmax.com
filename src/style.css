@@ -38,16 +38,20 @@ a,a:visited {
 }
 
 svg#ced, svg#innerced {
-	width: 450px;
-	height: 362px;
+	width:500px;
 	max-width: 90%;
 	position: absolute;
 	top:50%;
 	left:50%;
 	transform:translate3d(-50%,-50%,0);
 }
+
 .hide-svg svg#ced, .hide-svg svg#innerced {
 	display: none;
+}
+
+canvas {
+	transform:translate3d(0,0,0);
 }
 
 /*
@@ -208,34 +212,30 @@ ol {
 }
 
 nav {
-	position:absolute;
-	background:rgba(0,0,0,0.40);
-	bottom:35px;
-	left:35px;
-	text-align:left;
-	width:190px;
-	max-width:80%;
-	border-radius:12px 12px 12px 0;
-	overflow:hidden;
-	z-index:1
-}
-
-.backstretch-left nav {
-	right:35px;
-	left:auto;
-	border-radius:12px 12px 0 12px;
+	position: absolute;
+	background: rgba(0,0,0,.6);
+	bottom: 0px;
+	overflow: hidden;
+	z-index: 1;
+	width: 90%;
+	max-width: 310px;
+	left: 50%;
+	transform: translateX(-50%);
+	border-radius:3px 3px 0 0;
 }
 
 nav ul {
 	overflow:hidden;
-	padding:28px 25px 25px;
 	text-align: center;
+	display: flex;
+	justify-content: space-between;
+	padding:3px;
 }
 
 .scl {
   display: inline-block;
-  margin:5px;
-  text-indent: -40em;
+  text-indent: -440em;
+	flex:0 0 32px;
 }
 
 div[style*='999999'] {
@@ -276,7 +276,7 @@ footer {
 	border:2px solid #444;
 	background:#555;
 	color:#fff;
-	border-radius:0 12px 12px 12px;
+	border-radius:12px 12px 12px 0;
 	box-shadow:2px 2px 5px #111;
 	margin:0;
 	padding:3px 5px;
@@ -316,7 +316,7 @@ footer {
 
 .smoke-base .dialog {
 	position:absolute;
-	top:15%;
+	top:5%;
 	left:0;
 	width:100%
 }
@@ -327,7 +327,7 @@ footer {
 	text-transform:none;
 	color:#eee;
 	font-weight:400;
-	background-color:rgba(0,0,0,.75);
+	background-color:rgba(0,0,0,.60);
 	font-size:35px;
 	border-radius:0
 }
