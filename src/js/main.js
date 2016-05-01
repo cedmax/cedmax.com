@@ -117,6 +117,11 @@ require( [
 	var isTouch = ('ontouchstart' in document.documentElement);
 	if (!isTouch){
 		$('[data-src]').each(function(i, elm){
+			$('[data-src]').on('mouseover', function(){
+				$(document.body).addClass('hide-svg')
+			}).on('mouseout', function(){
+				$(document.body).removeClass('hide-svg')
+			})
 			var dataSrc = $(elm).attr('data-src');
 			$(elm).attr('data-src', dataSrc.replace(/\.gif$/g, versioning +'.gif'));
 		});
