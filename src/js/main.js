@@ -16,15 +16,15 @@ require( [
 
 	var imgArray = [ {
 		name: 'me'+versioning,
-		align: 'left',
 		centeredX: false
 	}, {
 		name: 'me2'+versioning,
-		align: 'right',
 		centeredX: false
 	}, {
+		name: 'me5'+versioning,
+		centeredX: true
+	}, {
 		name: 'me3'+versioning,
-		align: 'right',
 		centeredX: true
 	} ];
 
@@ -112,7 +112,6 @@ require( [
 
 	var img = imgArray[ Math.floor( Math.random() * imgArray.length ) ];
 	$.backstretch( 'img/' + img.name + '.jpg', {
-		align: img.align,
 		centeredX: img.centeredX,
 		centeredY: false,
 		speed: 300
