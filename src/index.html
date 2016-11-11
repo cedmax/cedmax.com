@@ -8,9 +8,6 @@
         <!-- ref:remove -->
             <script>
                 require = {
-                    paths: {
-                        'jquery': 'lib/jquery-2.0.1.min'
-                    },
                     shim: {
                         'lib/close-pixelate.min': {
                             exports: 'ClosePixelation'
@@ -22,18 +19,9 @@
                             exports: 'smoke'
                         },
                         'lib/giflinks.min': {
-                            deps: ['jquery'],
-                        },
-                        'lib/backstretch.min': {
-                            deps: ['jquery'],
-                        },
-                        'lib/jrumble.min': {
-                            deps: ['jquery'],
-                        },
-                        'lib/atooltip.min': {
-                            deps: ['jquery'],
-                        }
-                    }
+                            exports: 'GifLinks',
+                        } 
+                    }  
                 };
             </script>
             <script async defer data-main='js/main.js' src="js/lib/require.js"></script>
