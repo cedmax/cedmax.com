@@ -30,7 +30,10 @@ body {
 	font:11pt "Helvetica Neue",Helvetica,Arial,sans-serif;
 	text-shadow:#000 0 1px 0;
 	line-height:200%;
-	overflow-x: hidden
+	overflow-x: hidden;
+	background-position: 50% 0;
+	background-size: cover;
+	background-attachment: fixed;
 }
 
 a,a:visited {
@@ -233,8 +236,8 @@ nav ul {
 }
 
 .scl {
+	text-indent: -244em;
   display: inline-block;
-  text-indent: -440em;
 	flex:0 0 32px;
 }
 
@@ -268,9 +271,18 @@ footer {
 /*
 	### TOOLTIP ###
 */
+/*
+.scl {
+	position: relative;
+}
 
-.defaultTheme {
+.scl:hover .tooltip {
+	display: block;
+}
+
+.scl .tooltip {
 	position:absolute;
+	white-space:pre;
 	display:none;
 	z-index:50000;
 	border:2px solid #444;
@@ -280,14 +292,7 @@ footer {
 	box-shadow:2px 2px 5px #111;
 	margin:0;
 	padding:3px 5px;
-}
-
-.defaultTheme .aToolTipContent {
-	position:relative;
-	margin:0;
-	padding:0 5px
-}
-
+}*/
 
 /*
 	### NOTIFIER ###
