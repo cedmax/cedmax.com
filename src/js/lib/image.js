@@ -9,6 +9,7 @@ define([
   return function(img, imgElm) {
     return function() {
       document.body.style.backgroundImage = 'url(img/' + img.name + '.jpg)';
+      document.body.classList.add('background');
       if (img.position) {
         document.body.classList.add('background--' + img.position);
       }

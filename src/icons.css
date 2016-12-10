@@ -1,97 +1,36 @@
-
-.scl.linkedin-32x32 {
-  background: url('img/used-icons/linkedin-32x32.png');
-  width: 32px;
-  height: 32px;
+.facebook {
+  background-color: #3B5998;
+  box-shadow: 3px 3px 0 #263961;
 }
-
-.scl.facebook-32x32 {
-  background: url('img/used-icons/facebook-32x32.png');
-  width: 32px;
-  height: 32px;
+.feed {
+  background-color: #FFA500;
+  box-shadow: 3px 3px 0 rgba(179,116,0, .8);
 }
-
-.scl.foursquare-32x32 {
-  background: url('img/used-icons/foursquare-32x32.png');
-  width: 32px;
-  height: 32px;
+.github {
+  background-color: #181717;
+  box-shadow: 3px 3px 0 rgba(0,0,0, .8);
 }
-
-.scl.github-32x32 {
-  background: url('img/used-icons/github-32x32.png');
-  width: 32px;
-  height: 32px;
+.instagram {
+  background-color: #E4405F;
+  box-shadow: 3px 3px 0 rgba(189,27,57, .8);
 }
-
-.scl.instagram-32x32 {
-  background: url('img/used-icons/instagram-32x32.png');
-  width: 32px;
-  height: 32px;
+.lastfm {
+  background-color: #D51007;
+  box-shadow: 3px 3px 0 rgba(139,10,5, .8);
 }
-
-.scl.lanyrd-32x32 {
-  background: url('img/used-icons/lanyrd-32x32.png');
-  width: 32px;
-  height: 32px;
+.linkedin {
+  background-color: #0077B5;
+  box-shadow: 3px 3px 0 rgba(0,69,105, .8);
 }
-
-.scl.lastfm-32x32 {
-  background: url('img/used-icons/lastfm-32x32.png');
-  width: 32px;
-  height: 32px;
+.speakerdeck {
+  background-color: #339966;
+  box-shadow: 3px 3px 0 rgba(32,96,64, .8);
 }
-
-.scl.feed-32x32 {
-  background: url('img/used-icons/feed-32x32.png');
-  width: 32px;
-  height: 32px;
+.tumblr {
+  background-color: #36465D;
+  box-shadow: 3px 3px 0 rgba(26,34,45, .8);
 }
-
-.scl.slideshare-32x32 {
-  background: url('img/used-icons/slideshare-32x32.png');
-  width: 32px;
-  height: 32px;
+.twitter {
+  background-color: #1DA1F2;
+  box-shadow: 3px 3px 0 rgba(11,118,184, .8);
 }
-
-.scl.soundcloud-32x32 {
-  background: url('img/used-icons/soundcloud-32x32.png');
-  width: 32px;
-  height: 32px;
-}
-
-.scl.speakerdeck-32x32 {
-  background: url('img/used-icons/speakerdeck-32x32.png');
-  width: 32px;
-  height: 32px;
-}
-
-.scl.tumblr-32x32 {
-  background: url('img/used-icons/tumblr-32x32.png');
-  width: 32px;
-  height: 32px;
-}
-
-.scl.twitter-32x32 {
-  background: url('img/used-icons/twitter-32x32.png');
-  width: 32px;
-  height: 32px;
-}
-
-.scl.vimeo-32x32 {
-  background: url('img/used-icons/vimeo-32x32.png');
-  width: 32px;
-  height: 32px;
-}
-
-.scl.beard-32x32 {
-  background: url('img/used-icons/beard-32x32.png');
-  width: 32px;
-  height: 32px;
-}
-
-.scl.website-32x32 {
-  background: url('img/used-icons/website-32x32.png');
-  width: 32px;
-  height: 32px;
-}
-
