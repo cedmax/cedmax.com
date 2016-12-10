@@ -34,3 +34,11 @@
   background-color: #1DA1F2;
   box-shadow: 3px 3px 0 rgba(11,118,184, .8);
 }
+.dsgn {
+  background-color: #CC171E;
+  box-shadow: 3px 3px 0 rgba(135,15,20, .8);
+}
+
+.dsgn svg {
+  margin: -4px;
+}
