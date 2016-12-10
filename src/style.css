@@ -17,7 +17,7 @@ ul,li {
 }
 
 li {
-	display:inline
+	display:inline-block;
 }
 
 html, body, header {
@@ -30,7 +30,18 @@ body {
 	font:11pt "Helvetica Neue",Helvetica,Arial,sans-serif;
 	text-shadow:#000 0 1px 0;
 	line-height:200%;
-	overflow-x: hidden
+	overflow-x: hidden;
+	background-position: 50% 0;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+body.background--right {
+	background-position-x: 100%
+}
+
+body.background--left {
+	background-position-x: 0
 }
 
 a,a:visited {
@@ -120,7 +131,7 @@ ol {
 	display: block;
 }
 
-.year > div {
+.year > a {
 	position: absolute;
 	top:0;
 	left:0;
@@ -215,7 +226,6 @@ nav {
 	position: absolute;
 	background: rgba(0,0,0,.6);
 	bottom: 0px;
-	overflow: hidden;
 	z-index: 1;
 	width: 90%;
 	max-width: 310px;
@@ -225,16 +235,17 @@ nav {
 }
 
 nav ul {
-	overflow:hidden;
 	text-align: center;
 	display: flex;
 	justify-content: space-between;
 	padding:3px;
 }
+nav li {
+	height: 30px;
+}
 
 .scl {
   display: inline-block;
-  text-indent: -440em;
 	flex:0 0 32px;
 }
 
@@ -268,9 +279,13 @@ footer {
 /*
 	### TOOLTIP ###
 */
+.scl:hover .tooltip {
+	display: block;
+}
 
-.defaultTheme {
+.scl .tooltip {
 	position:absolute;
+	white-space:pre;
 	display:none;
 	z-index:50000;
 	border:2px solid #444;
@@ -278,16 +293,9 @@ footer {
 	color:#fff;
 	border-radius:12px 12px 12px 0;
 	box-shadow:2px 2px 5px #111;
-	margin:0;
-	padding:3px 5px;
+	margin:-45px 0 0;
+	padding:3px 7px;
 }
-
-.defaultTheme .aToolTipContent {
-	position:relative;
-	margin:0;
-	padding:0 5px
-}
-
 
 /*
 	### NOTIFIER ###
