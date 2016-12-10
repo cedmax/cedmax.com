@@ -34,6 +34,6 @@ require([
   enableCheetCode();
 
   if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('/service-worker.'+versioning+'.js');
+    navigator.serviceWorker.register('/service-worker'+versioning+'.js');
   }
 });
