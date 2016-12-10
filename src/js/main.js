@@ -1,10 +1,10 @@
 /* global require */
 require([
-    'lib/close-pixelate.min',
-    'lib/smoke.min',
-    'lib/cheet.min',
-    'lib/webcredits.min',
-    'lib/giflinks.min'
+    'vendor/close-pixelate.min',
+    'vendor/smoke.min',
+    'vendor/cheet.min',
+    'vendor/webcredits.min',
+    'vendor/giflinks.min'
 ], function(pixelate, smoke, cheet, webCredits) {
     'use strict';
 
