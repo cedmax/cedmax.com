@@ -122,7 +122,7 @@ module.exports = function( grunt ) {
       combine: {
         files: {
           'tmp/style.css': [ 'src/style.css' ],
-          'tmp/icons.css': [ 'tmp/icons.css' ],
+          'tmp/icons.css': [ 'src/icons.css' ],
           'tmp/fonts.css': [ 'src/fonts.css' ]
         }
       }
@@ -149,5 +149,5 @@ module.exports = function( grunt ) {
     }
   } );
 
-  grunt.registerTask( 'default', [ 'clean:reset', 'requirejs', 'sprite', 'cssmin', 'autoprefixer', 'copy', 'htmlrefs', 'minifyHtml', 'clean:tmp', 'swPrecache' ] );
+  grunt.registerTask( 'default', [ 'clean:reset', 'requirejs', 'cssmin', 'autoprefixer', 'copy', 'htmlrefs', 'minifyHtml', 'clean:tmp', 'swPrecache' ] );
 };
