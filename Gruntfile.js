@@ -27,7 +27,7 @@ module.exports = function( grunt ) {
       staticFileGlobs: config.src
     };
 
-    swPrecache.write(path.join('./', 'service-worker.js'), config, callback);
+    swPrecache.write(path.join('./', 'service-worker.'+cacheVersion+'.js'), config, callback);
   }
 
 
@@ -145,7 +145,7 @@ module.exports = function( grunt ) {
     },
     clean: {
       tmp: [ 'tmp' ],
-      reset: ['media', 'img', 'js', 'service-worker.js', 'index.html']
+      reset: ['media', 'img', 'js', 'service-worker*', 'index.html']
     }
   } );
 

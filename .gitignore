@@ -3,4 +3,5 @@ node_modules
 /img
 /index.html
 /media
-/service-worker.js
+/service-worker*
+/npm_debug.log
