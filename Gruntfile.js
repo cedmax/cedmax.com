@@ -20,7 +20,7 @@ module.exports = function( grunt ) {
   });
 
   function writeServiceWorkerFile(config, callback) {
-    var config = {
+    config = {
       addCacheBuster:false,
       cacheId: cacheVersion,
       logger: grunt.log.writeln,
@@ -34,7 +34,7 @@ module.exports = function( grunt ) {
   grunt.initConfig( {
     swPrecache: {
       dev: {
-        src: ['js/vendor/almond.js', 'js/main.'+cacheVersion+'.js', 'img/*', 'index.html' ]
+        src: ['js/vendor/almond.js', 'js/main.'+ cacheVersion +'.js', 'img/*', 'index.html' ]
       }
     },
     htmlrefs: {
@@ -75,12 +75,6 @@ module.exports = function( grunt ) {
         }, {
           expand: true,
           flatten: true,
-          src: [ 'tmp/img/sprite.' + cacheVersion + '.png' ],
-          dest: 'img',
-          filter: 'isFile'
-        }, {
-          expand: true,
-          flatten: true,
           src: [ 'src/img/*.*' ],
           dest: 'img',
           filter: 'isFile',
@@ -97,19 +91,6 @@ module.exports = function( grunt ) {
             return dest +'/'+ src.replace('.gif', '.'+ cacheVersion+'.gif');
           }
         }  ]
-      }
-    },
-    sprite: {
-      all: {
-        src: 'src/img/used-icons/*.png',
-        destImg: 'img/sprite.' + cacheVersion + '.png',
-        destCSS: 'tmp/icons.css',
-        imgPath: 'img/sprite.' + cacheVersion + '.png',
-        'cssOpts': {
-          'cssClass': function( item ) {
-            return '.scl.' + item.name;
-          }
-        }
       }
     },
     requirejs: {
