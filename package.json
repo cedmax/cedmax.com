@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "test": "eslint ./src/js/**/*.js --quiet --ignore-pattern vendor",
-    "bundle": "grunt"
+    "build": "grunt"
   },
   "author": "Marco Cedaro",
   "devDependencies": {
