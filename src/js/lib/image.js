@@ -13,28 +13,31 @@ define([
       if (img.position) {
         document.body.classList.add('background--' + img.position);
       }
-      var imgClone = imgElm.cloneNode(true);
-      var ratio = imgElm.width / imgElm.height;
 
-      var viewPortSize = helpers.getViewPortSize();
-      document.querySelector('main').appendChild(imgClone);
-      imgClone.closePixelate([{
-        resolution: 18,
-        width: (viewPortSize.y * ratio) + 'px',
-        height: viewPortSize.y + 'px'
-      }]);
+      if (!helpers.isIe()) {
+        var imgClone = imgElm.cloneNode(true);
+        var ratio = imgElm.width / imgElm.height;
 
-      resizeAndPositionCanvas = resizeAndPositionCanvas(ratio, img.position);
-      resizeAndPositionCanvas();
-      window.addEventListener('scroll', helpers.throttle(resizeAndPositionCanvas));
-      window.addEventListener('resize', helpers.throttle(resizeAndPositionCanvas));
+        var viewPortSize = helpers.getViewPortSize();
+        document.querySelector('main').appendChild(imgClone);
+        imgClone.closePixelate([{
+          resolution: 18,
+          width: (viewPortSize.y * ratio) + 'px',
+          height: viewPortSize.y + 'px'
+        }]);
 
-      renderSvg = renderSvg(imgClone, ratio, img.position);
+        resizeAndPositionCanvas = resizeAndPositionCanvas(ratio, img.position);
+        resizeAndPositionCanvas();
+        window.addEventListener('scroll', helpers.throttle(resizeAndPositionCanvas));
+        window.addEventListener('resize', helpers.throttle(resizeAndPositionCanvas));
 
-      //render twice to calculate correctly the dimensions the first time
-      renderSvg();
-      renderSvg();
-      window.addEventListener('resize', helpers.throttle(renderSvg));
+        renderSvg = renderSvg(imgClone, ratio, img.position);
+
+        //render twice to calculate correctly the dimensions the first time
+        renderSvg();
+        renderSvg();
+        window.addEventListener('resize', helpers.throttle(renderSvg));
+      }
     };
   };
 });
