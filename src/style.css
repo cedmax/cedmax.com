@@ -80,7 +80,8 @@ canvas {
 main {
   background: rgba(0,0,0,.6);
   overflow: hidden;
-  position: relative;
+  position: absolute;
+  top:100%;
   width:100%;
 }
 
