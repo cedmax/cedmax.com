@@ -22,7 +22,8 @@ define([
       };
 
       var svgWidth = rect.width;
-      var svgResizeRatio = SVG_SIZE_W / svgWidth;
+
+      var svgResizeRatio = SVG_SIZE_W / (svgWidth || 1);
 
       var viewPortSize = helpers.getViewPortSize();
 
