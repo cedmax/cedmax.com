@@ -21,6 +21,11 @@ require([
     name: 'me5' + versioning
   }, {
     name: 'me3' + versioning
+  }, {
+    name: 'me6' + versioning,
+    position: 'left'
+  }, {
+    name: 'me7' + versioning
   }];
 
   var img = imgArray[Math.floor(Math.random() * imgArray.length)];
