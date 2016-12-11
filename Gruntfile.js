@@ -5,7 +5,7 @@ module.exports = function( grunt ) {
   var swPrecache = require('sw-precache');
   var path = require('path');
 
-  var cacheVersion = 26;
+  var cacheVersion = 27;
 
   grunt.registerMultiTask('swPrecache', function(){
     var done = this.async();
@@ -122,7 +122,6 @@ module.exports = function( grunt ) {
       combine: {
         files: {
           'tmp/style.css': [ 'src/style.css' ],
-          'tmp/icons.css': [ 'src/icons.css' ],
           'tmp/fonts.css': [ 'src/fonts.css' ]
         }
       }
