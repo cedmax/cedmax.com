@@ -16,27 +16,35 @@ define([
 
       if (!helpers.isIe()) {
         var imgClone = imgElm.cloneNode(true);
-        var ratio = imgElm.width / imgElm.height;
+        var int = setInterval(function(){
+          if (!imgClone.width) {
+            return;
+          } else {
+            clearInterval(int);
+          }
+          var ratio = imgElm.width / imgElm.height;
 
-        var viewPortSize = helpers.getViewPortSize();
-        document.querySelector('main').appendChild(imgClone);
-        imgClone.closePixelate([{
-          resolution: 18,
-          width: (viewPortSize.y * ratio) + 'px',
-          height: viewPortSize.y + 'px'
-        }]);
+          var viewPortSize = helpers.getViewPortSize();
+          document.querySelector('main').appendChild(imgClone);
 
-        resizeAndPositionCanvas = resizeAndPositionCanvas(ratio, img.position);
-        resizeAndPositionCanvas();
-        window.addEventListener('scroll', helpers.throttle(resizeAndPositionCanvas));
-        window.addEventListener('resize', helpers.throttle(resizeAndPositionCanvas));
+          imgClone.closePixelate([{
+            resolution: 18,
+            width: (viewPortSize.y * ratio) + 'px',
+            height: viewPortSize.y + 'px'
+          }]);
 
-        renderSvg = renderSvg(imgClone, ratio, img.position);
+          resizeAndPositionCanvas = resizeAndPositionCanvas(ratio, img.position);
+          resizeAndPositionCanvas();
+          window.addEventListener('scroll', helpers.throttle(resizeAndPositionCanvas));
+          window.addEventListener('resize', helpers.throttle(resizeAndPositionCanvas));
 
-        //render twice to calculate correctly the dimensions the first time
-        renderSvg();
-        renderSvg();
-        window.addEventListener('resize', helpers.throttle(renderSvg));
+          renderSvg = renderSvg(imgClone, ratio, img.position);
+
+          //render twice to calculate correctly the dimensions the first time
+          renderSvg();
+          renderSvg();
+          window.addEventListener('resize', helpers.throttle(renderSvg));
+        }, 50);
       }
     };
   };
