@@ -5,8 +5,9 @@ require([
   'lib/gifs',
   'lib/say-bye',
   'lib/cheet',
+  'lib/lazy-load',
   'lib/helpers'
-], function(imageOnLoad, enableTooltip, enableGifs, enableGreets, enableCheetCode, helpers) {
+], function(imageOnLoad, enableTooltip, enableGifs, enableGreets, enableCheetCode, lazyLoadImages, helpers) {
   'use strict';
 
   var versioning = helpers.getVersion();
@@ -36,6 +37,7 @@ require([
   enableGifs();
   enableTooltip();
   enableGreets();
+  lazyLoadImages();
   enableCheetCode();
 
   if (navigator.serviceWorker) {

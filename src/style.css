@@ -91,7 +91,7 @@ main canvas {
   max-width: 100%;
 }
 
-h1, h3 {
+h1, h2, h3 {
   text-align: center;
   padding: 0 35px;
   font-family:credit;
@@ -101,6 +101,12 @@ h1, h3 {
 h1 {
   font-size:250%;
   padding-top:35px;
+}
+
+h2 {
+  text-align:left;
+  padding-top:40px;
+  background:rgba(255,255,255,.1);
 }
 
 .bio {
@@ -123,23 +129,30 @@ ol {
   flex-flow: row wrap;
 }
 
-.year {
+.year, .pproject {
   flex: 1 1 170px;
   margin: 10px 10px 20px;
   max-width: 200px;
   min-width: 170px;
-  pading-top:100%;
   position: relative;
 }
 
-.year::before {
+.pproject img {
+  width: 100%
+}
+
+.year::before, .pproject::before {
   content:'';
   width:100%;
   padding-top:100%;
   display: block;
 }
 
-.year > a {
+.pproject::before {
+  padding-top:75%;
+}
+
+.year > a, .pproject > a {
   position: absolute;
   top:0;
   left:0;
@@ -150,7 +163,7 @@ ol {
   justify-content: center;
 }
 
-.year--filler {
+.year--filler, .pproject--filler {
   visibility: hidden;
   height: 0;margin-top:0;margin-bottom: 0
 }
@@ -198,12 +211,14 @@ ol {
   flex-direction: column;
   align-items: flex-start;
   align-content:center;
+  text-align:center;
   justify-content:center;
   height: 100%;
   flex-flow: column nowrap;
   width: 100%;
   background:rgba(0,0,0,0.3);
   padding:7px;
+  text-decoration: none
 }
 
 .what small {

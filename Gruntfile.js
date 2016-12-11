@@ -5,7 +5,7 @@ module.exports = function( grunt ) {
   var swPrecache = require('sw-precache');
   var path = require('path');
 
-  var cacheVersion = 27;
+  var cacheVersion = 28;
 
   grunt.registerMultiTask('swPrecache', function(){
     var done = this.async();
@@ -89,6 +89,15 @@ module.exports = function( grunt ) {
           filter: 'isFile',
           rename: function(dest, src) {
             return dest +'/'+ src.replace('.gif', '.'+ cacheVersion+'.gif');
+          }
+        }, {
+          expand: true,
+          flatten: true,
+          src: [ 'src/img/pp/*.*' ],
+          dest: 'img/pp',
+          filter: 'isFile',
+          rename: function(dest, src) {
+            return dest +'/'+ src.replace('.jpg', '.'+ cacheVersion+'.jpg');
           }
         }  ]
       }
