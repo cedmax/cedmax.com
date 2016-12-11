@@ -34,7 +34,7 @@ module.exports = function( grunt ) {
   grunt.initConfig( {
     swPrecache: {
       dev: {
-        src: ['js/vendor/almond.js', 'js/main.'+ cacheVersion +'.js', 'img/*', 'index.html' ]
+        src: ['js/main.'+ cacheVersion +'.js', 'img/*', 'index.html' ]
       }
     },
     htmlrefs: {
@@ -59,12 +59,6 @@ module.exports = function( grunt ) {
           flatten: true,
           src: [ 'tmp/main.' + cacheVersion + '.js' ],
           dest: 'js/',
-          filter: 'isFile'
-        }, {
-          expand: true,
-          flatten: true,
-          src: [ 'src/js/vendor/almond.js' ],
-          dest: 'js/vendor',
           filter: 'isFile'
         }, {
           expand: true,
@@ -105,6 +99,7 @@ module.exports = function( grunt ) {
     requirejs: {
       compile: {
         options: {
+          deps: ['vendor/almond'],
           optimize: 'uglify2',
           baseUrl: '.',
           out: 'tmp/main.' + cacheVersion + '.js',
