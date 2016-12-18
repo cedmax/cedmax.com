@@ -28,18 +28,14 @@ define([
       var viewPortSize = helpers.getViewPortSize();
 
       var imgHeight, imgWidth;
-      var viewportWidthRules = (viewPortSize.x > referenceImg.width);
-      if (viewportWidthRules) {
+      var viewPortSizeRatio = viewPortSize.x / viewPortSize.y;
+
+      if (viewPortSizeRatio > ratio) {
         imgWidth = viewPortSize.x;
         imgHeight = imgWidth / ratio;
       } else {
-        if  (viewPortSize.x > imgWidth) {
-          imgWidth = viewPortSize.x;
-          imgHeight = imgWidth / ratio;
-        } else {
-          imgHeight = viewPortSize.y;
-          imgWidth = imgHeight * ratio;
-        }
+        imgHeight = viewPortSize.y;
+        imgWidth = imgHeight * ratio;
       }
 
       var patternWidth = imgWidth * svgResizeRatio;
