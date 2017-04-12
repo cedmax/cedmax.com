@@ -406,6 +406,11 @@
     <!-- ref:inlinecss tmp/fonts.css -->
     <link type="text/css" rel="stylesheet" href="fonts.css" />
     <!-- endref -->
+    <script>
+       if (navigator.serviceWorker) {
+          navigator.serviceWorker.register('/service-worker.js');
+       }
+    </script>
   </body>
 
 </html>

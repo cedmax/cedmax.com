@@ -2,41 +2,10 @@ module.exports = function( grunt ) {
   'use strict';
 
   require('matchdep').filterDev('grunt-!(cli)').forEach(grunt.loadNpmTasks);
-  var swPrecache = require('sw-precache');
-  var path = require('path');
-
+  var fs = require('fs');
   var cacheVersion = 33;
 
-  grunt.registerMultiTask('swPrecache', function(){
-    var done = this.async();
-    var config = this.data;
-
-    writeServiceWorkerFile(config, function(error) {
-      if (error) {
-        grunt.fail.warn(error);
-      }
-      done();
-    });
-  });
-
-  function writeServiceWorkerFile(config, callback) {
-    config = {
-      addCacheBuster:false,
-      cacheId: cacheVersion,
-      logger: grunt.log.writeln,
-      staticFileGlobs: config.src
-    };
-
-    swPrecache.write(path.join('./', 'service-worker.'+cacheVersion+'.js'), config, callback);
-  }
-
-
   grunt.initConfig( {
-    swPrecache: {
-      dev: {
-        src: ['js/main.'+ cacheVersion +'.js', 'img/*', 'index.html' ]
-      }
-    },
     htmlrefs: {
       dist: {
         src: 'src/index.html',
@@ -52,6 +21,21 @@ module.exports = function( grunt ) {
         }
       }
     },
+    replace: {
+      serviceWorker: {
+        options: {
+          patterns: [
+            {
+              match: 'filesToCache',
+              replacement: fs.readdirSync(__dirname + '/img').filter(img => img.indexOf('.jpg')>-1).map(img => 'img/' + img)
+            }
+          ]
+        },
+        files: [
+          { expand: true, flatten: true, src: [ 'src/service-worker.js' ], dest: './' }
+        ]
+      }
+   },
     copy: {
       main: {
         files: [ {
@@ -152,5 +136,5 @@ module.exports = function( grunt ) {
     }
   } );
 
-  grunt.registerTask( 'default', [ 'clean:reset', 'requirejs', 'cssmin', 'autoprefixer', 'copy', 'htmlrefs', 'minifyHtml', 'clean:tmp', 'swPrecache' ] );
+  grunt.registerTask( 'default', [ 'clean:reset', 'requirejs', 'cssmin', 'autoprefixer', 'copy', 'htmlrefs', 'minifyHtml', 'clean:tmp', 'replace' ] );
 };

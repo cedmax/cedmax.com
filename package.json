@@ -23,7 +23,10 @@
     "grunt-contrib-requirejs": "~0.4.1",
     "grunt-htmlrefs": "git://github.com/cedmax/grunt-htmlrefs.git#patch-1",
     "grunt-minify-html": "^2.0.0",
-    "matchdep": "^0.3.0",
-    "sw-precache": "^2.2.0"
+    "grunt-replace": "^1.0.1",
+    "matchdep": "^0.3.0"
+  },
+  "dependencies": {
+    "sw-toolbox": "^3.6.0"
   }
 }

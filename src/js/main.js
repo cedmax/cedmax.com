@@ -39,8 +39,4 @@ require([
   enableGreets();
   lazyLoadImages();
   enableCheetCode();
-
-  if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('/service-worker'+versioning+'.js');
-  }
 });
