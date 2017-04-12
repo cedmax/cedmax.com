@@ -295,9 +295,9 @@ nav li {
   background-color: #3B5998;
   box-shadow: 3px 3px 0 #263961;
 }
-.feed {
-  background-color: #FFA500;
-  box-shadow: 3px 3px 0 rgba(179,116,0, .8);
+.kennel {
+  background-color: #a00;
+  box-shadow: 3px 3px 0 rgba(170,0,0, .8);
 }
 .github {
   background-color: #181717;
