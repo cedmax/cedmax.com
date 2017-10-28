@@ -27,7 +27,7 @@ module.exports = function( grunt ) {
           patterns: [
             {
               match: 'filesToCache',
-              replacement: fs.readdirSync(__dirname + '/src/img').filter(img => img.indexOf('.jpg')>-1).map(img => 'img/' + img)
+              replacement: fs.readdirSync(__dirname + '/src/img').filter(img => img.indexOf('.jpg')>-1 || img.indexOf('.png')>-1).map(img => 'img/' + img.replace('.', `.${cacheVersion}.`))
             }
           ]
         },
