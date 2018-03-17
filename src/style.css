@@ -267,7 +267,7 @@ nav {
   bottom: 0px;
   z-index: 1;
   width: 90%;
-  max-width: 350px;
+  max-width: 320px;
   left: 50%;
   transform: translateX(-50%);
 }
