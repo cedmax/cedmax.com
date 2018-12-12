@@ -102,6 +102,11 @@ h1, h2, h3 {
   text-shadow: 2px 2px 0px #000;
 }
 
+main h3 {
+  line-height: 1;
+  padding-top: 12px;
+}
+
 h1 {
   font-size:250%;
   padding-top:35px;
