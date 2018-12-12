@@ -5,3 +5,4 @@ node_modules
 /media
 /service-worker*
 /npm_debug.log
+/dist
