@@ -6,28 +6,43 @@ require([
   'lib/say-bye',
   'lib/cheet',
   'lib/lazy-load',
-  'lib/helpers'
-], function(imageOnLoad, enableTooltip, enableGifs, enableGreets, enableCheetCode, lazyLoadImages, helpers) {
+  'lib/helpers',
+], function(
+  imageOnLoad,
+  enableTooltip,
+  enableGifs,
+  enableGreets,
+  enableCheetCode,
+  lazyLoadImages,
+  helpers
+) {
   'use strict';
 
   var versioning = helpers.getVersion();
 
-  var imgArray = [{
-    name: 'me' + versioning,
-    position: 'left'
-  }, {
-    name: 'me2' + versioning,
-    position: 'right'
-  },{
-    name: 'me5' + versioning
-  }, {
-    name: 'me3' + versioning
-  }, {
-    name: 'me6' + versioning,
-    position: 'left'
-  }, {
-    name: 'me7' + versioning
-  }];
+  var imgArray = [
+    {
+      name: 'me' + versioning,
+      position: 'left',
+    },
+    {
+      name: 'me2' + versioning,
+      position: 'right',
+    },
+    {
+      name: 'me5' + versioning,
+    },
+    {
+      name: 'me3' + versioning,
+    },
+    {
+      name: 'me6' + versioning,
+      position: 'left',
+    },
+    {
+      name: 'me7' + versioning,
+    },
+  ];
 
   var img = imgArray[Math.floor(Math.random() * imgArray.length)];
   var imgElm = new Image();

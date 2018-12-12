@@ -1,4 +1,4 @@
-define(function(){
+define(function() {
   'use strict';
 
   function detectIE() {
@@ -27,8 +27,8 @@ define(function(){
     return false;
   }
 
-
-  var reqAnimFrame = window.requestAnimationFrame ||
+  var reqAnimFrame =
+    window.requestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
     function(callback) {
       setTimeout(callback, 1000 / 60);
@@ -49,11 +49,11 @@ define(function(){
   return {
     extend: Object.assign || extend,
 
-    isIe: function(){
+    isIe: function() {
       return !!detectIE();
     },
 
-    ready: function(fn){
+    ready: function(fn) {
       if (document.readyState != 'loading') {
         fn();
       } else {
@@ -61,22 +61,29 @@ define(function(){
       }
     },
 
-    getViewPortSize: function () {
+    getViewPortSize: function() {
       var myWidth = 0,
         myHeight = 0;
-      if (typeof(window.innerWidth) == 'number') {
+      if (typeof window.innerWidth == 'number') {
         myWidth = window.innerWidth;
         myHeight = window.innerHeight;
-      } else if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+      } else if (
+        document.documentElement &&
+        (document.documentElement.clientWidth ||
+          document.documentElement.clientHeight)
+      ) {
         myWidth = document.documentElement.clientWidth;
         myHeight = document.documentElement.clientHeight;
-      } else if (document.body && (document.body.clientWidth || document.body.clientHeight)) {
+      } else if (
+        document.body &&
+        (document.body.clientWidth || document.body.clientHeight)
+      ) {
         myWidth = document.body.clientWidth;
         myHeight = document.body.clientHeight;
       }
       return {
         x: myWidth,
-        y: myHeight
+        y: myHeight,
       };
     },
 
@@ -86,8 +93,8 @@ define(function(){
       };
     },
 
-    getVersion: function(){
+    getVersion: function() {
       return window.version ? '.' + window.version : '';
-    }
+    },
   };
 });

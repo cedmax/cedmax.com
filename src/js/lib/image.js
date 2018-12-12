@@ -2,7 +2,7 @@ define([
   'vendor/close-pixelate.min',
   'lib/resize-canvas',
   'lib/render-svg',
-  'lib/helpers'
+  'lib/helpers',
 ], function(pixelate, resizeAndPositionCanvas, renderSvg, helpers) {
   'use strict';
 
@@ -16,7 +16,7 @@ define([
 
       if (!helpers.isIe()) {
         var imgClone = imgElm.cloneNode(true);
-        var int = setInterval(function(){
+        var int = setInterval(function() {
           if (!imgClone.width) {
             return;
           } else {
@@ -27,16 +27,27 @@ define([
           var viewPortSize = helpers.getViewPortSize();
           document.querySelector('main').appendChild(imgClone);
 
-          imgClone.closePixelate([{
-            resolution: 18,
-            width: (viewPortSize.y * ratio) + 'px',
-            height: viewPortSize.y + 'px'
-          }]);
+          imgClone.closePixelate([
+            {
+              resolution: 18,
+              width: viewPortSize.y * ratio + 'px',
+              height: viewPortSize.y + 'px',
+            },
+          ]);
 
-          resizeAndPositionCanvas = resizeAndPositionCanvas(ratio, img.position);
+          resizeAndPositionCanvas = resizeAndPositionCanvas(
+            ratio,
+            img.position
+          );
           resizeAndPositionCanvas();
-          window.addEventListener('scroll', helpers.throttle(resizeAndPositionCanvas));
-          window.addEventListener('resize', helpers.throttle(resizeAndPositionCanvas));
+          window.addEventListener(
+            'scroll',
+            helpers.throttle(resizeAndPositionCanvas)
+          );
+          window.addEventListener(
+            'resize',
+            helpers.throttle(resizeAndPositionCanvas)
+          );
 
           renderSvg = renderSvg(imgClone, ratio, img.position);
 
