@@ -54,6 +54,13 @@ module.exports = function(grunt) {
           {
             expand: true,
             flatten: true,
+            src: ['_redirects'],
+            dest: 'dist/',
+            filter: 'isFile',
+          },
+          {
+            expand: true,
+            flatten: true,
             src: ['tmp/main.' + cacheVersion + '.js'],
             dest: 'dist/js/',
             filter: 'isFile',
