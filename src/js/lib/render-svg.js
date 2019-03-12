@@ -14,9 +14,26 @@ define(['lib/helpers'], function(helpers) {
       var svg = document.getElementById('ced');
       var rect = svg.getBoundingClientRect();
 
+      var left =
+        window.pageXOffset !== undefined
+          ? window.pageXOffset
+          : (
+              document.documentElement ||
+              document.body.parentNode ||
+              document.body
+            ).scrollLeft;
+      var top =
+        window.pageYOffset !== undefined
+          ? window.pageYOffset
+          : (
+              document.documentElement ||
+              document.body.parentNode ||
+              document.body
+            ).scrollTop;
+
       var offset = {
-        top: rect.top + document.body.scrollTop,
-        left: rect.left + document.body.scrollLeft,
+        top: rect.top + top,
+        left: rect.left + left,
       };
 
       var svgWidth = rect.width;
