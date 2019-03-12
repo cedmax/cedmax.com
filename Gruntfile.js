@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     .filterDev('grunt-!(cli)')
     .forEach(grunt.loadNpmTasks);
   var fs = require('fs');
-  var cacheVersion = 33;
+  var cacheVersion = 34;
 
   grunt.initConfig({
     htmlrefs: {
@@ -55,6 +55,13 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             src: ['_redirects'],
+            dest: 'dist/',
+            filter: 'isFile',
+          },
+          {
+            expand: true,
+            flatten: true,
+            src: ['node_modules/sw-toolbox/sw-toolbox.js'],
             dest: 'dist/',
             filter: 'isFile',
           },

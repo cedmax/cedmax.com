@@ -1,4 +1,4 @@
-importScripts('/node_modules/sw-toolbox/sw-toolbox.js');
+importScripts('/sw-toolbox.js');
 
 toolbox.precache(@@filesToCache)
 toolbox.router.get('/', toolbox.fastest);
