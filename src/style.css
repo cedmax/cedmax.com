@@ -68,9 +68,6 @@ svg#ced, svg#innerced {
   display: none;
 }
 
-canvas {
-  transform:translate3d(0,0,0);
-}
 
 /*
   ### MAIN ###
@@ -93,6 +90,7 @@ main canvas {
   z-index: -1;
   width:100%!important;
   max-width: 100%;
+  will-change: transform
 }
 
 h1, h2, h3 {
