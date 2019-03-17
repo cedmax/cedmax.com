@@ -1,6 +1,5 @@
 import React from "react";
 import { Head } from "react-static";
-import Schema from "./Schema";
 
 export default ({ meta }) => (
   <Head>
@@ -11,6 +10,5 @@ export default ({ meta }) => (
     <meta property="og:title" content={meta.meta_title} />
     <meta property="og:description" content={meta.meta_decription} />
     <meta name="twitter:site" content="@cedmax" />
-    <Schema meta={meta.schema_org} />
   </Head>
 );

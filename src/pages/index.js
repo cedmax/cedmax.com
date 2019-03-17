@@ -4,8 +4,7 @@ import Main from "../containers/Main";
 import Meta from "../containers/Meta";
 import Header from "../containers/Header";
 import Footer from "../containers/Footer";
-import Pixelated from "../containers/Pixelated";
-import { isIE } from "../dom-utilities";
+import Schema from "../containers/Schema";
 
 const getIndex = backgrounds => Math.floor(Math.random() * backgrounds.length);
 
@@ -35,6 +34,7 @@ export default withSiteData(
 
     return (
       <Fragment>
+        <Schema schema={metaContent.schema_org} />
         <Meta meta={metaContent} />
         <Main
           meta={metaContent}
