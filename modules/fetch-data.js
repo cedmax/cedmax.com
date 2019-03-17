@@ -12,12 +12,23 @@ const fetchImages = async (dataModel, type) => {
   if (dataModel.image) {
     const options = {
       url: `${dataModel.image}${type === "project" ? "?h=200" : ""}`,
-      dest: "./public/api" // Save to /path/to/dest/image.jpg
+      dest: "./public/api"
     };
 
     const { filename } = await download.image(options);
     dataModel.image = filename.replace("public/", "/");
   }
+
+  if (dataModel.gif) {
+    const options = {
+      url: `${dataModel.gif}`,
+      dest: "./public/api"
+    };
+
+    const { filename } = await download.image(options);
+    dataModel.gif = filename.replace("public/", "/");
+  }
+
   return dataModel;
 };
 
