@@ -1,8 +1,6 @@
 node_modules
-/js
-/img
-/index.html
-/media
-/service-worker*
-/npm_debug.log
-/dist
+artifacts
+public/api/*.*
+tmp
+dist
+data.json

@@ -1,32 +1,29 @@
 {
-  "name": "cedmax.com",
-  "version": "1.0.0",
-  "description": "personal website",
-  "keywords": [
-    "cedmax",
-    "personal",
-    "website"
-  ],
+  "name": "react-static-example-basic",
+  "private": true,
   "scripts": {
-    "test": "eslint ./src/js/**/*.js --quiet --ignore-pattern vendor",
-    "build": "grunt"
-  },
-  "author": "Marco Cedaro",
-  "devDependencies": {
-    "eslint": "^3.12.0",
-    "grunt": "~0.4.1",
-    "grunt-autoprefixer": "^3.0.3",
-    "grunt-cli": "~0.1.9",
-    "grunt-contrib-clean": "~0.4.1",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-cssmin": "~0.6.1",
-    "grunt-contrib-requirejs": "~0.4.1",
-    "grunt-htmlrefs": "git://github.com/cedmax/grunt-htmlrefs.git#patch-1",
-    "grunt-minify-html": "^2.0.0",
-    "grunt-replace": "^1.0.1",
-    "matchdep": "^0.3.0"
+    "start": "react-static start",
+    "stage": "react-static build --staging",
+    "build": "react-static build && node modules/update-service-worker.js",
+    "bundle": "react-static bundle",
+    "export": "react-static export",
+    "serve": "serve dist -p 3000 -s"
   },
   "dependencies": {
+    "@reach/router": "^1.2.1",
+    "axios": "^0.18.0",
+    "image-downloader": "^3.4.2",
+    "memoize-one": "^5.0.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-hot-loader": "^4.8.0",
+    "react-konami": "^0.5.0",
+    "react-lazy-load-image-component": "^1.3.2",
+    "react-static": "^6.3.6",
     "sw-toolbox": "^3.6.0"
+  },
+  "devDependencies": {
+    "eslint-config-react-tools": "1.1.6",
+    "serve": "10.1.2"
   }
 }

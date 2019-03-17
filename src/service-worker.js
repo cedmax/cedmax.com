@@ -1,6 +1,6 @@
-importScripts('/sw-toolbox.js');
+importScripts("/sw-toolbox.js");
 
-toolbox.precache(@@filesToCache)
-toolbox.router.get('/', toolbox.fastest);
-toolbox.router.get('js/main.*.js', toolbox.fastest);
-toolbox.router.get('img/*', toolbox.cacheFirst);
+toolbox.precache("@@filesToCache");
+toolbox.router.get("/", toolbox.fastest);
+toolbox.router.get("*.js", toolbox.fastest);
+toolbox.router.get("api/*", toolbox.cacheFirst);
