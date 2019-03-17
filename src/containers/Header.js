@@ -1,11 +1,17 @@
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Svg from "./Svg";
 import FullScreenGif from "../containers/FullScreenGif";
 import { isIE } from "../dom-utilities";
 
 export default ({ socials, ratio, background }) => {
   const [gif, setGif] = useState(null);
+
+  useEffect(() => {
+    document.querySelector("header svg").style.visibility = gif
+      ? "hidden"
+      : "visible";
+  }, [gif]);
 
   return (
     <header>
