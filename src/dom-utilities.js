@@ -166,21 +166,10 @@ const detectIe = () => {
 export const isIE = !!detectIe();
 
 export const resizeAndPositionCanvas = (ratio, alignment) => () => {
-  const basicStyle = {
-    // top: `${-document.querySelector("main").getBoundingClientRect().top}px`,
-    "min-width": `${getViewPortSize().y * ratio}px`
-  };
-
-  if (!alignment) {
-    basicStyle.transform = "translateX(-50%)";
-    basicStyle.left = "50%";
-  } else if (alignment === "right") {
-    basicStyle.right = "0";
-  }
-
-  Object.keys(basicStyle).forEach(prop => {
-    document.querySelector("canvas").style[prop] = basicStyle[prop];
-  });
+  const canvas = document.querySelector("canvas");
+  canvas.style.top = `${-document.querySelector("main").getBoundingClientRect()
+    .top}px`;
+  canvas.style.minWidth = `${getViewPortSize().y * ratio}px`;
 };
 
 export const throttle = callback => () => reqAnimFrame()(callback);

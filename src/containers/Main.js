@@ -1,8 +1,10 @@
 import React from "react";
 import PetProjects from "./PetProjects";
 import Years from "./Years";
+import Pixelated from "../containers/Pixelated";
+import { isIE } from "../dom-utilities";
 
-export default ({ meta, projects, years }) => (
+export default ({ meta, projects, years, background, ratio }) => (
   <main>
     <h1>{meta.name}</h1>
     <h3>
@@ -16,5 +18,6 @@ export default ({ meta, projects, years }) => (
 
     <PetProjects projects={projects} />
     <Years years={years} />
+    {!isIE && ratio && <Pixelated background={background} ratio={ratio} />}
   </main>
 );

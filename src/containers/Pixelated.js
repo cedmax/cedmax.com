@@ -19,6 +19,7 @@ const pixelate = (img, alignment, ratio) => {
   const resize = resizeAndPositionCanvas(ratio, alignment);
   resize();
   window.addEventListener("resize", throttle(resize));
+  window.addEventListener("scroll", throttle(resize));
 };
 
 export default ({ background, ratio }) => {

@@ -8,16 +8,7 @@ export default ({ socials, ratio, background }) => {
   const [gif, setGif] = useState(null);
 
   return (
-    <header
-      style={{
-        backgroundImage: ratio && `url(${background.image})`
-      }}
-      className={`background${
-        ratio && background.alignment
-          ? ` background--${background.alignment}`
-          : ""
-      }`}
-    >
+    <header>
       <nav>
         <ul>
           {socials.map(

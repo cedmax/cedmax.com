@@ -7,8 +7,7 @@ import Footer from "../containers/Footer";
 import Pixelated from "../containers/Pixelated";
 import { isIE } from "../dom-utilities";
 
-const getRandomIndex = list => Math.floor(Math.random() * list.length);
-const getIndex = backgrounds => getRandomIndex(backgrounds);
+const getIndex = backgrounds => Math.floor(Math.random() * backgrounds.length);
 
 export default withSiteData(
   ({ meta, background: backgrounds, years, social, project }) => {
@@ -18,6 +17,14 @@ export default withSiteData(
 
     useEffect(() => {
       if (typeof document !== "undefined") {
+        const background = backgrounds[backgroundIdx];
+
+        document.body.style.backgroundImage = `url(${background.image})`;
+        document.body.classList.add("background");
+        if (background.alignment) {
+          document.body.classList.add(`background--${background.alignment}`);
+        }
+
         const imgElm = new Image();
         imgElm.onload = () => {
           setRatio(imgElm.width / imgElm.height);
@@ -29,15 +36,19 @@ export default withSiteData(
     return (
       <Fragment>
         <Meta meta={metaContent} />
-        <Main meta={metaContent} projects={project} years={years} />
+        <Main
+          meta={metaContent}
+          background={backgrounds[backgroundIdx]}
+          ratio={ratio}
+          projects={project}
+          years={years}
+        />
         <Header
           background={backgrounds[backgroundIdx]}
           ratio={ratio}
           socials={social}
         />
-        {!isIE && ratio && (
-          <Pixelated background={backgrounds[backgroundIdx]} ratio={ratio} />
-        )}
+
         <Footer />
       </Fragment>
     );

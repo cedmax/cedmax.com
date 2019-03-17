@@ -82,10 +82,6 @@ svg#ced, svg#innerced {
   display: none;
 }
 
-canvas {
-  transform:translate3d(0,0,0);
-}
-
 /*
   ### MAIN ###
 */
@@ -96,19 +92,33 @@ main {
   overflow: hidden;
   position: absolute;
   top:100%;
-  z-index: 1;
   width:100%;
 }
-main > * {
-  transform:translateZ(0);
-}
 
-canvas {
-  position: fixed;
+
+main canvas {
+  transform:translateZ(0);
+  position: absolute;
   z-index: -1;
-  top: 0;
   width:100%!important;
   max-width: 100%;
+  will-change: transform
+}
+
+.background main canvas {
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.background--left main canvas {
+  transform: none;
+  left: 0;
+}
+
+.background--right main canvas {
+  transform: none;
+  left: auto;
+  right: 0;
 }
 
 h1, h2, h3 {
@@ -241,6 +251,7 @@ ol {
   align-items: flex-start;
   align-content:center;
   text-align:center;
+  align-items: center;
   justify-content:center;
   height: 100%;
   flex-flow: column nowrap;
