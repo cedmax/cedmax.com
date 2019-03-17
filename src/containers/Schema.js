@@ -1,8 +1,8 @@
 import React from "react";
 
-export default ({ meta }) => (
+export default ({ schema_org }) => (
   <script
     type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: meta.schema_org }}
+    dangerouslySetInnerHTML={{ __html: schema_org }}
   />
 );

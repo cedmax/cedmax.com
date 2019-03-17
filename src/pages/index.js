@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { withSiteData } from "react-static";
 import Main from "../containers/Main";
-import Schema from "../containers/Schema";
+import Meta from "../containers/Meta";
 import Header from "../containers/Header";
 import Footer from "../containers/Footer";
 import Pixelated from "../containers/Pixelated";
@@ -14,6 +14,7 @@ export default withSiteData(
   ({ meta, background: backgrounds, years, social, project }) => {
     const [backgroundIdx] = useState(getIndex(backgrounds));
     const [ratio, setRatio] = useState(null);
+    const [metaContent] = useState(meta[0]);
 
     useEffect(() => {
       if (typeof document !== "undefined") {
@@ -27,8 +28,8 @@ export default withSiteData(
 
     return (
       <Fragment>
-        <Schema meta={meta[0]} />
-        <Main meta={meta[0]} projects={project} years={years} />
+        <Meta meta={metaContent} />
+        <Main meta={metaContent} projects={project} years={years} />
         <Header
           background={backgrounds[backgroundIdx]}
           ratio={ratio}

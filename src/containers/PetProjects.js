@@ -7,7 +7,7 @@ export default ({ projects }) => (
     <ol className="flipper">
       {projects.map(project => (
         <li key={project.name} className="pproject flip-container">
-          <a
+          <span
             className="front"
             style={{
               backgroundImage: `url('${project.thumbnail}')`
@@ -17,7 +17,7 @@ export default ({ projects }) => (
               alt={`${project.name} screenshot`}
               src={`${project.image}?h=200`}
             />
-          </a>
+          </span>
           <a
             target="_blank"
             rel="noopener noreferrer"

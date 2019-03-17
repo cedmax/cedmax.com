@@ -6,14 +6,14 @@ export default ({ years }) => (
     <ol className="flipper">
       {years.map(({ year, events, image }) => (
         <li key={year} className="year flip-container">
-          <a className="front">
+          <span className="front">
             <span className="when">{year}</span>
-          </a>
+          </span>
           <ul className="what back">
             {!!events && events.map(event => <li key={event}>{event}</li>)}
             {!events && (
               <li>
-                <img src={image} />
+                <img alt="placeholder" src={image} />
               </li>
             )}
           </ul>

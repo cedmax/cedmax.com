@@ -181,7 +181,7 @@ ol {
   padding-top:70%;
 }
 
-.year > a, .pproject > a {
+.year > .front, .pproject > .front {
   position: absolute;
   top:0;
   left:0;
