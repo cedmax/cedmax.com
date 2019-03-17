@@ -3,8 +3,9 @@
   "private": true,
   "scripts": {
     "start": "react-static start",
+    "postinstall": "node modules/fetch-data",
     "stage": "react-static build --staging",
-    "build": "react-static build && node modules/update-service-worker.js",
+    "build": "react-static build && node modules/update-service-worker",
     "bundle": "react-static bundle",
     "export": "react-static export",
     "serve": "serve dist -p 3000 -s"
