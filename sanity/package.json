@@ -1,0 +1,22 @@
+{
+  "name": "cedmaxcom",
+  "version": "1.0.0",
+  "main": "package.json",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "test": "sanity check"
+  },
+  "dependencies": {
+    "@sanity/base": "^0.140.11",
+    "@sanity/color-input": "^0.140.3",
+    "@sanity/components": "^0.140.11",
+    "@sanity/core": "^0.140.11",
+    "@sanity/default-layout": "^0.140.11",
+    "@sanity/default-login": "^0.140.3",
+    "@sanity/desk-tool": "^0.140.11",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  }
+}
