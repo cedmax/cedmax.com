@@ -47,6 +47,7 @@ export default () => {
             <div>
               George Agnelli <br />
               Federico Ros <br />
+              Irene Ros <br />
               Paris Web conference <br />
               Front Trends conference <br />
               Front the Front meetup <br />
@@ -54,54 +55,38 @@ export default () => {
           </section>
 
           <section className="credits__block">
-            <h3>Javascript Libraries</h3>
+            <h3>Built with</h3>
             <div>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://github.com/namuol/cheet.js"
+                href="https://netlify.com"
               >
-                CheetJs
+                Netlify
               </a>
               <br />
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://github.com/desandro/close-pixelate"
+                href="https://www.sanity.io/"
+              >
+                Sanity.io
+              </a>
+              <br />
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://react-static.js.org"
+              >
+                React Static
+              </a>
+              <br />
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://github.com/TylerBarnes/close-pixelate"
               >
                 Close Pixelate
-              </a>
-              <br />
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://github.com/tholman/giflinks"
-              >
-                GifLinks
-              </a>
-              <br />
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://github.com/jrburke/almond"
-              >
-                AlmondJs
-              </a>
-              <br />
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://github.com/hxgf/smoke.js"
-              >
-                SmokeJs
-              </a>
-              <br />
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://github.com/felipenmoura/web-credits"
-              >
-                WebCredits
               </a>
             </div>
           </section>
