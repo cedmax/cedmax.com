@@ -414,8 +414,9 @@ footer {
   color:#fff;
   border-radius:12px 12px 12px 0;
   box-shadow:2px 2px 5px #111;
-  margin:-65px 0 0;
+  margin:-70px 0 0 20px;
   padding:3px 7px;
+  transform: translateZ(0);
 }
 
 /*
@@ -664,10 +665,10 @@ footer {
   background-size: cover;
   pointer-events: none;
   position: fixed;
-  height: 100%; 
-  width: 100%; 
-  margin: 0px; 
-  left: 0px; 
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  left: 0px;
   top: 0px;
   z-index: -1
 }
