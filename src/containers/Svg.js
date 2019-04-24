@@ -55,11 +55,21 @@ export default class SVG extends React.Component {
   });
 
   render() {
-    const { SVG_SIZE_W, SVG_SIZE_H } = this.state;
-    const { patternHeight, patternWidth, patternLeft, patternTop } = this.state;
+    const {
+      SVG_SIZE_W,
+      SVG_SIZE_H,
+      patternHeight,
+      patternWidth,
+      patternLeft,
+      patternTop
+    } = this.state;
+    const { hide } = this.props;
 
     return (
       <svg
+        style={{
+          visibility: hide ? "hidden" : "visible"
+        }}
         id="ced"
         ref={this.mySvg}
         viewBox={`0 0 ${SVG_SIZE_W} ${SVG_SIZE_H}`}

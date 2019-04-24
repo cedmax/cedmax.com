@@ -7,12 +7,6 @@ import { isIE } from "../dom-utilities";
 export default ({ socials, ratio, background }) => {
   const [gif, setGif] = useState(null);
 
-  useEffect(() => {
-    document.querySelector("header svg").style.visibility = gif
-      ? "hidden"
-      : "visible";
-  }, [gif]);
-
   return (
     <header>
       <nav>
@@ -59,7 +53,7 @@ export default ({ socials, ratio, background }) => {
           )}
         </ul>
       </nav>
-      {!isIE && <Svg background={background} ratio={ratio} />}
+      {!isIE && <Svg hide={!!gif} background={background} ratio={ratio} />}
       <FullScreenGif gif={gif} />
     </header>
   );
