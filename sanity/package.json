@@ -8,13 +8,13 @@
     "test": "sanity check"
   },
   "dependencies": {
-    "@sanity/base": "^0.140.11",
+    "@sanity/base": "^0.140.12",
     "@sanity/color-input": "^0.140.3",
-    "@sanity/components": "^0.140.11",
-    "@sanity/core": "^0.140.11",
-    "@sanity/default-layout": "^0.140.11",
-    "@sanity/default-login": "^0.140.3",
-    "@sanity/desk-tool": "^0.140.11",
+    "@sanity/components": "^0.140.16",
+    "@sanity/core": "^0.140.16",
+    "@sanity/default-layout": "^0.140.16",
+    "@sanity/default-login": "^0.140.15",
+    "@sanity/desk-tool": "^0.140.16",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
