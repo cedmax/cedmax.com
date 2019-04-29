@@ -15,7 +15,7 @@ export default memo(({ projects }) => (
           >
             <LazyLoadImage
               alt={`${project.name} screenshot`}
-              src={`${project.image}?h=200`}
+              src={`${project.image}`}
             />
           </span>
           <a
