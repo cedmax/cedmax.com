@@ -15,7 +15,7 @@ const newSW = serviceWorker.replace(
   JSON.stringify(
     fs
       .readdirSync("./public/api")
-      .filter(img => img.indexOf(".jpg") > -1 || img.indexOf(".png") > -1)
+      .filter(img => img.indexOf(".gif") > -1 || img.indexOf(".png") > -1)
       .map(img => `api/${img}`)
   )
 );
