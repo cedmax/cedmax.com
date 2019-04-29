@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 
-export default ({ schema }) => (
+export default memo(({ schema }) => (
   <script
     type="application/ld+json"
     dangerouslySetInnerHTML={{ __html: schema }}
   />
-);
+));

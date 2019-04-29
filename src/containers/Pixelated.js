@@ -1,5 +1,5 @@
 /* eslint-disable no-new */
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, memo } from "react";
 import {
   getViewPortSize,
   resizeAndPositionCanvas,
@@ -22,7 +22,7 @@ const pixelate = (img, alignment, ratio) => {
   window.addEventListener("scroll", throttle(resize));
 };
 
-export default ({ background, ratio }) => {
+export default memo(({ background, ratio }) => {
   const refImage = useRef(null);
 
   if (typeof document !== "undefined") {
@@ -42,4 +42,4 @@ export default ({ background, ratio }) => {
 
   // eslint-disable-next-line jsx-a11y/alt-text
   return <img ref={refImage} src={background.image} />;
-};
+});

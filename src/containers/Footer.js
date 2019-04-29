@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, memo } from "react";
 import Konami from "react-konami";
 import { autoScroll, fadeAudio } from "../dom-utilities";
 
-export default () => {
+export default memo(() => {
   const [visible, setVisible] = useState(false);
   const refContainer = useRef(null);
   const refAudio = useRef(null);
@@ -157,4 +157,4 @@ export default () => {
       </div>
     </footer>
   );
-};
+});

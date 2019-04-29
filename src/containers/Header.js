@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
-import React, { useState, useEffect } from "react";
+import React, { useState, memo } from "react";
 import Svg from "./Svg";
 import FullScreenGif from "../containers/FullScreenGif";
 import { isIE } from "../dom-utilities";
 
-export default ({ socials, ratio, background }) => {
+export default memo(({ socials, ratio, background }) => {
   const [gif, setGif] = useState(null);
 
   return (
@@ -57,4 +57,4 @@ export default ({ socials, ratio, background }) => {
       <FullScreenGif gif={gif} />
     </header>
   );
-};
+});

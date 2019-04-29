@@ -1,7 +1,7 @@
-import React from "react";
+import React, {memo} from "react";
 import { Head } from "react-static";
 
-export default ({ meta }) => (
+export default memo(({ meta }) => (
   <Head>
     <title>{meta.meta_title}</title>
     <description>{meta.meta_decription}</description>
@@ -17,4 +17,4 @@ export default ({ meta }) => (
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   </Head>
-);
+));

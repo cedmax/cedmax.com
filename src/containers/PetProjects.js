@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
+import React, { Fragment, memo } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-export default ({ projects }) => (
+export default memo(({ projects }) => (
   <Fragment>
     <h2>Pet Projects</h2>
     <ol className="flipper">
@@ -36,4 +36,4 @@ export default ({ projects }) => (
       <li className="pproject pproject--filler" />
     </ol>
   </Fragment>
-);
+));

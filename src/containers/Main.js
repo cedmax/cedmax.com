@@ -1,10 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import PetProjects from "./PetProjects";
 import Years from "./Years";
 import Pixelated from "../containers/Pixelated";
 import { isIE } from "../dom-utilities";
 
-export default ({ meta, projects, years, background, ratio }) => (
+export default memo(({ meta, projects, years, background, ratio }) => (
   <main>
     <h1>{meta.name}</h1>
     <h3>
@@ -20,4 +20,4 @@ export default ({ meta, projects, years, background, ratio }) => (
     <Years years={years} />
     {!isIE && ratio && <Pixelated background={background} ratio={ratio} />}
   </main>
-);
+));

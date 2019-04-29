@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
+import React, { Fragment, memo } from "react";
 
-export default ({ years }) => (
+export default memo(({ years }) => (
   <Fragment>
     <h2>Storyline</h2>
     <ol className="flipper">
@@ -30,4 +30,4 @@ export default ({ years }) => (
       <li className="year year--filler" />
     </ol>
   </Fragment>
-);
+));
