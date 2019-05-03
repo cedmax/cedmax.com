@@ -3,7 +3,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default memo(({ projects }) => (
   <Fragment>
-    <h2>Pet Projects</h2>
+    <h3>Pet Projects</h3>
     <ol className="flipper">
       {projects.map(project => (
         <li key={project.name} className="pproject flip-container">

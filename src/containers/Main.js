@@ -7,13 +7,13 @@ import { isIE } from "../dom-utilities";
 export default memo(({ meta, projects, years, background, ratio }) => (
   <main>
     <h1>{meta.name}</h1>
-    <h3>
+    <h2>
       <em>
         {meta.title}
         <br />
         <small>{meta.subtitle}</small>
       </em>
-    </h3>
+    </h2>
     <p className="bio">{meta.description}</p>
 
     <PetProjects projects={projects} />

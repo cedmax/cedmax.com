@@ -2,7 +2,7 @@ import React, { Fragment, memo } from "react";
 
 export default memo(({ years }) => (
   <Fragment>
-    <h2>Storyline</h2>
+    <h3>Storyline</h3>
     <ol className="flipper">
       {years.map(({ year, events, image }) => (
         <li key={year} className="year flip-container">
