@@ -1,7 +1,7 @@
 import ClosePixelate from "./vendor/close-pixelate";
 import memoize from "memoize-one";
 
-const isNode = typeof document !== "undefined";
+const isNode = typeof document === "undefined";
 const getViewPort = () => (isNode ? {} : require("viewport-js"));
 const getScroll = getViewPort().calculateScroll;
 const getViewPortSize = getViewPort().calculateDimensions;
