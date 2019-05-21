@@ -4,7 +4,7 @@ import Svg from "./Svg";
 import FullScreenGif from "../containers/FullScreenGif";
 import { isIE } from "../dom-utilities";
 
-export default memo(({ socials, ratio, background }) => {
+export default memo(({ socials, background }) => {
   const [gif, setGif] = useState(null);
 
   return (
@@ -14,17 +14,17 @@ export default memo(({ socials, ratio, background }) => {
           {socials.map(
             ({
               background: {
-                rgb: { r, g, b, a }
+                rgb: { r, g, b, a },
               },
               shadow: {
-                rgb: { r: sr, g: sg, b: sb, a: sa }
+                rgb: { r: sr, g: sg, b: sb, a: sa },
               },
               negative,
               gif,
               image,
               description,
               service,
-              link
+              link,
             }) => (
               <li key={service}>
                 <a
@@ -34,14 +34,14 @@ export default memo(({ socials, ratio, background }) => {
                   className="scl"
                   style={{
                     background: `rgba(${r}, ${g}, ${b}, ${a})`,
-                    boxShadow: `3px 3px 0 rgba(${sr}, ${sg}, ${sb}, ${sa})`
+                    boxShadow: `3px 3px 0 rgba(${sr}, ${sg}, ${sb}, ${sa})`,
                   }}
                   href={link}
                   rel="noreferrer noopener"
                 >
                   <img
                     style={{
-                      filter: `invert(${negative ? "0%" : "100%"})`
+                      filter: `invert(${negative ? "0%" : "100%"})`,
                     }}
                     src={image}
                     alt={service}
@@ -53,7 +53,7 @@ export default memo(({ socials, ratio, background }) => {
           )}
         </ul>
       </nav>
-      {!isIE && <Svg hide={!!gif} background={background} ratio={ratio} />}
+      <Svg hide={!!gif} background={background} />
       <FullScreenGif gif={gif} />
     </header>
   );

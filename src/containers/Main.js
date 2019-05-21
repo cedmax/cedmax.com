@@ -1,11 +1,7 @@
-import React, { memo } from "react";
-import PetProjects from "./PetProjects";
-import Years from "./Years";
-import Pixelated from "../containers/Pixelated";
-import { isIE } from "../dom-utilities";
+import React, { Fragment, memo } from "react";
 
-export default memo(({ meta, projects, years, background, ratio }) => (
-  <main>
+export default memo(({ meta }) => (
+  <Fragment>
     <h1>{meta.name}</h1>
     <h2>
       <em>
@@ -15,9 +11,5 @@ export default memo(({ meta, projects, years, background, ratio }) => (
       </em>
     </h2>
     <p className="bio">{meta.description}</p>
-
-    <PetProjects projects={projects} />
-    <Years years={years} />
-    {!isIE && ratio && <Pixelated background={background} ratio={ratio} />}
-  </main>
+  </Fragment>
 ));
