@@ -1,6 +1,7 @@
 const axios = require("axios");
 const download = require("image-downloader");
 const fs = require("fs");
+const imageSize = require("image-size");
 
 const transformer = data => {
   const { _createdAt, _id, _rev, _updatedAt, ...dataModel } = data;
@@ -12,20 +13,26 @@ const fetchImages = async (dataModel, type) => {
   if (dataModel.image) {
     const options = {
       url: `${dataModel.image}${type === "project" ? "?h=200" : ""}`,
-      dest: "./public/api"
+      dest: "./public/api",
     };
 
     const { filename } = await download.image(options);
+    const { width, height } = imageSize(filename);
     dataModel.image = filename.replace("public/", "/");
+    dataModel.ratio = width / height;
+    if (dataModel.image.endsWith(".svg") || type === "background") {
+      delete dataModel.thumbnail;
+    }
   }
 
   if (dataModel.gif) {
     const options = {
       url: `${dataModel.gif}`,
-      dest: "./public/api"
+      dest: "./public/api",
     };
 
     const { filename } = await download.image(options);
+    delete dataModel.thumbnail;
     dataModel.gif = filename.replace("public/", "/");
   }
 
@@ -50,7 +57,7 @@ const reducer = async (acc, dataItem) => {
 
 (async () => {
   const {
-    data: { result }
+    data: { result },
   } = await axios.get(
     "https://r9vfj53f.api.sanity.io/v1/data/query/production?query=*[]{%20...,%20%22thumbnail%22:%20image.asset-%3E%20metadata.lqip,%20%22image%22:%20image.asset%20-%3E%20url%20,%20%22gif%22:%20gif.asset%20-%3E%20url%20}"
   );
