@@ -1,11 +1,13 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Root, Routes } from "react-static";
 
 import "./app.css";
 
 const App = () => (
   <Root>
-    <Routes />
+    <Suspense fallback={<div />}>
+      <Routes />
+    </Suspense>
   </Root>
 );
 

@@ -1,3 +1,4 @@
+/* global importScripts: false, toolbox: false */
 importScripts("/sw-toolbox.js");
 
 toolbox.precache("@@filesToCache");
