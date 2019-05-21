@@ -1,11 +1,48 @@
 import ClosePixelate from "./vendor/close-pixelate";
-import memoize from "memoize-one";
 
 const isNode = typeof document === "undefined";
-const getViewPort = () => (isNode ? {} : require("viewport-js"));
-const getScroll = getViewPort().calculateScroll;
-const getViewPortSize = getViewPort().calculateDimensions;
 const multiplyBy = num => otherNum => num * otherNum;
+
+const getScroll = () => {
+  const scrollX =
+    window.pageXOffset !== undefined
+      ? window.pageXOffset
+      : (document.documentElement || document.body.parentNode || document.body)
+          .scrollLeft;
+  const scrollY =
+    window.pageYOffset !== undefined
+      ? window.pageYOffset
+      : (document.documentElement || document.body.parentNode || document.body)
+          .scrollTop;
+
+  return { scrollX, scrollY };
+};
+
+export const getViewPortSize = () => {
+  let width = 0;
+  let height = 0;
+  if (typeof window.innerWidth === "number") {
+    width = window.innerWidth;
+    height = window.innerHeight;
+  } else if (
+    document.documentElement &&
+    (document.documentElement.clientWidth ||
+      document.documentElement.clientHeight)
+  ) {
+    width = document.documentElement.clientWidth;
+    height = document.documentElement.clientHeight;
+  } else if (
+    document.body &&
+    (document.body.clientWidth || document.body.clientHeight)
+  ) {
+    width = document.body.clientWidth;
+    height = document.body.clientHeight;
+  }
+  return {
+    width,
+    height,
+  };
+};
 
 export const calculateSvgDimensions = SVG_SIZE_W => ({
   svg,

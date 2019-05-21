@@ -15,7 +15,7 @@ export default memo(({ total, idx, setIdx }) => (
       konami={[37]}
       easterEgg={() => {
         let prev = idx - 1;
-        prev = prev > 0 ? prev : total - 1;
+        prev = prev >= 0 ? prev : total - 1;
         setIdx(prev);
       }}
     />
