@@ -1,57 +1,23 @@
-export const getScroll = () => {
-  const left =
-    window.pageXOffset !== undefined
-      ? window.pageXOffset
-      : (document.documentElement || document.body.parentNode || document.body)
-          .scrollLeft;
-  const top =
-    window.pageYOffset !== undefined
-      ? window.pageYOffset
-      : (document.documentElement || document.body.parentNode || document.body)
-          .scrollTop;
+import ClosePixelate from "./vendor/close-pixelate";
+import memoize from "memoize-one";
 
-  return { left, top };
-};
-
-export const getViewPortSize = () => {
-  let myWidth = 0;
-  let myHeight = 0;
-  if (typeof window.innerWidth === "number") {
-    myWidth = window.innerWidth;
-    myHeight = window.innerHeight;
-  } else if (
-    document.documentElement &&
-    (document.documentElement.clientWidth ||
-      document.documentElement.clientHeight)
-  ) {
-    myWidth = document.documentElement.clientWidth;
-    myHeight = document.documentElement.clientHeight;
-  } else if (
-    document.body &&
-    (document.body.clientWidth || document.body.clientHeight)
-  ) {
-    myWidth = document.body.clientWidth;
-    myHeight = document.body.clientHeight;
-  }
-  return {
-    x: myWidth,
-    y: myHeight
-  };
-};
+const isNode = typeof document !== "undefined";
+const getViewPort = () => (isNode ? {} : require("viewport-js"));
+const getScroll = getViewPort().calculateScroll;
+const getViewPortSize = getViewPort().calculateDimensions;
+const multiplyBy = num => otherNum => num * otherNum;
 
 export const calculateSvgDimensions = SVG_SIZE_W => ({
   svg,
-  props,
-  viewPortSize,
-  scroll
+  background: { ratio, alignment },
 }) => {
   if (!svg) return {};
 
+  const scroll = getScroll();
   const rect = svg.getBoundingClientRect();
-
   const offset = {
-    top: rect.top + scroll.top,
-    left: rect.left + scroll.left
+    top: rect.top + scroll.scrollY,
+    left: rect.left + scroll.scrollX,
   };
 
   const svgWidth = rect.width;
@@ -59,30 +25,35 @@ export const calculateSvgDimensions = SVG_SIZE_W => ({
 
   let imgHeight;
   let imgWidth;
-  const viewPortSizeRatio = viewPortSize.x / viewPortSize.y;
-  if (viewPortSizeRatio > props.ratio) {
-    imgWidth = viewPortSize.x;
-    imgHeight = imgWidth / props.ratio;
+  const viewPortSize = getViewPortSize();
+  const viewPortSizeRatio = viewPortSize.width / viewPortSize.height;
+
+  if (viewPortSizeRatio > ratio) {
+    imgWidth = viewPortSize.width;
+    imgHeight = imgWidth / ratio;
   } else {
-    imgHeight = viewPortSize.y;
-    imgWidth = imgHeight * props.ratio;
+    imgHeight = viewPortSize.height;
+    imgWidth = imgHeight * ratio;
   }
 
-  const patternWidth = imgWidth * svgResizeRatio;
-  const patternHeight = imgHeight * svgResizeRatio;
-  const patternTop = -offset.top * svgResizeRatio;
+  const multiplyByRatio = multiplyBy(svgResizeRatio);
+  const patternWidth = multiplyByRatio(imgWidth);
+  const patternHeight = multiplyByRatio(imgHeight);
+  const patternTop = multiplyByRatio(-offset.top);
 
   let patternLeft;
 
-  switch (props.background.alignment) {
+  switch (alignment) {
     case "left":
-      patternLeft = -offset.left * svgResizeRatio;
+      patternLeft = multiplyByRatio(-offset.left);
       break;
     case "right":
-      patternLeft = (viewPortSize.x - imgWidth - offset.left) * svgResizeRatio;
+      patternLeft = multiplyByRatio(
+        viewPortSize.width - imgWidth - offset.left
+      );
       break;
     default:
-      patternLeft = -(imgWidth / 2 - svgWidth / 2) * svgResizeRatio;
+      patternLeft = multiplyByRatio(-(imgWidth / 2 - svgWidth / 2));
       break;
   }
 
@@ -90,12 +61,11 @@ export const calculateSvgDimensions = SVG_SIZE_W => ({
     patternHeight,
     patternWidth,
     patternTop,
-    patternLeft
+    patternLeft,
   };
 };
 
 const timeout = e => window.setTimeout(e, 1e3 / 60);
-const isNode = typeof document === "undefined";
 const reqAnimFrame = () =>
   window.requestAnimationFrame ||
   window.webkitRequestAnimationFrame ||
@@ -165,11 +135,41 @@ const detectIe = () => {
 
 export const isIE = !!detectIe();
 
-export const resizeAndPositionCanvas = (ratio, alignment) => () => {
+const resizeAndPositionCanvas = (ratio, alignment) => () => {
   const canvas = document.querySelector("canvas");
   canvas.style.top = `${-document.querySelector("main").getBoundingClientRect()
     .top}px`;
-  canvas.style.minWidth = `${getViewPortSize().y * ratio}px`;
+  canvas.style.minWidth = `${getViewPortSize().height * ratio}px`;
 };
 
 export const throttle = callback => () => reqAnimFrame()(callback);
+
+let instance;
+let throttledResize;
+export const pixelate = (img, alignment, ratio) => {
+  const viewPortSize = getViewPortSize();
+  const config = [
+    {
+      resolution: 18,
+      width: `${viewPortSize.height * ratio}`,
+      height: `${viewPortSize.height}`,
+    },
+  ];
+
+  if (instance) {
+    instance.img = img;
+    instance.render(config);
+    window.removeEventListener("resize", throttledResize);
+    window.removeEventListener("resize", throttledResize);
+  } else {
+    instance = new ClosePixelate(img, config);
+  }
+
+  const resize = resizeAndPositionCanvas(ratio, alignment);
+  throttledResize = throttle(resize);
+
+  window.addEventListener("resize", throttledResize);
+  window.addEventListener("scroll", throttledResize);
+
+  resize();
+};

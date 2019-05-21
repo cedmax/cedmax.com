@@ -1,45 +1,25 @@
 /* eslint-disable no-new */
 import React, { useRef, useEffect, memo } from "react";
-import {
-  getViewPortSize,
-  resizeAndPositionCanvas,
-  throttle
-} from "../dom-utilities";
-import ClosePixelate from "../vendor/close-pixelate";
+import { pixelate } from "../dom-utilities";
+import { isIE } from "../dom-utilities";
 
-const pixelate = (img, alignment, ratio) => {
-  const viewPortSize = getViewPortSize();
-  new ClosePixelate(img, [
-    {
-      resolution: 18,
-      width: `${viewPortSize.y * ratio}`,
-      height: `${viewPortSize.y}`
-    }
-  ]);
-  const resize = resizeAndPositionCanvas(ratio, alignment);
-  resize();
-  window.addEventListener("resize", throttle(resize));
-  window.addEventListener("scroll", throttle(resize));
-};
+export default memo(({ background: { ratio, alignment, image } }) => {
+  if (isIE || !ratio) return null;
 
-export default memo(({ background, ratio }) => {
   const refImage = useRef(null);
 
   if (typeof document !== "undefined") {
     useEffect(() => {
       const { current: image } = refImage;
-      if (image && ratio) {
-        const int = setInterval(() => {
-          if (!image.width) {
-            return;
-          }
+      const int = setInterval(() => {
+        if (image.width) {
           clearInterval(int);
-          pixelate(image, background.alignment, ratio);
-        }, 100);
-      }
-    }, [refImage, ratio]);
+          pixelate(image, alignment, ratio);
+        }
+      }, 100);
+    }, [image]);
   }
 
   // eslint-disable-next-line jsx-a11y/alt-text
-  return <img ref={refImage} src={background.image} />;
+  return <img ref={refImage} src={image} />;
 });
