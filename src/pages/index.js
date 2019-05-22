@@ -9,6 +9,7 @@ import Schema from "../containers/Schema";
 import PetProjects from "../containers/PetProjects";
 import Years from "../containers/Years";
 import Pixelated from "../containers/Pixelated";
+import { isNode } from "../dom-utilities";
 
 const getIndex = backgrounds => Math.floor(Math.random() * backgrounds.length);
 
@@ -23,7 +24,7 @@ export default withSiteData(
     const [backgroundIdx, setBackgroundIdx] = useState(getIndex(backgrounds));
     const background = backgrounds[backgroundIdx];
     useEffect(() => {
-      if (typeof document !== "undefined") {
+      if (!isNode) {
         document.body.style.backgroundImage = `url(${background.image})`;
         document.body.className = "background";
         if (background.alignment) {

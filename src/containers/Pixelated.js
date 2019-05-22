@@ -1,10 +1,10 @@
 /* eslint-disable no-new */
 import React, { useRef, useEffect, memo } from "react";
 import { pixelate } from "../dom-utilities";
-import { isIE } from "../dom-utilities";
+import { isIE, isNode } from "../dom-utilities";
 
 export default memo(({ background: { ratio, alignment, image } }) => {
-  if (isIE || !ratio) return null;
+  if (isIE || isNode) return null;
 
   const refImage = useRef(null);
 

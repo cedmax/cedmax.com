@@ -1,6 +1,6 @@
 import ClosePixelate from "./vendor/close-pixelate";
 
-const isNode = typeof document === "undefined";
+export const isNode = typeof document === "undefined";
 const multiplyBy = num => otherNum => num * otherNum;
 
 const getScroll = () => {
