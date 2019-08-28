@@ -667,3 +667,10 @@ div[style*='-999999'] {
   top: 0px;
   z-index: -1
 }
+
+/* awful hack until I sort out why it broke on ff */
+@-moz-document url-prefix() {
+  svg#ced, svg#innerced {
+    display: none!important;
+  }
+}
