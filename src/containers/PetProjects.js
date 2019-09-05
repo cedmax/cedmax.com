@@ -34,6 +34,12 @@ export default memo(({ projects }) => (
       <li className="pproject pproject--filler" />
       <li className="pproject pproject--filler" />
       <li className="pproject pproject--filler" />
+      <li className="pproject pproject--filler" />
+      <li className="pproject pproject--filler" />
+      <li className="pproject pproject--filler" />
+      <li className="pproject pproject--filler" />
+      <li className="pproject pproject--filler" />
+      <li className="pproject pproject--filler" />
     </ol>
   </Fragment>
 ));
