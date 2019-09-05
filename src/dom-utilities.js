@@ -46,9 +46,10 @@ export const getViewPortSize = () => {
 
 export const calculateSvgDimensions = SVG_SIZE_W => ({
   svg,
+  header,
   background: { ratio, alignment },
 }) => {
-  if (!svg) return {};
+  if (!svg || !header) return {};
 
   const scroll = getScroll();
   const rect = svg.getBoundingClientRect();
@@ -62,7 +63,7 @@ export const calculateSvgDimensions = SVG_SIZE_W => ({
 
   let imgHeight;
   let imgWidth;
-  const viewPortSize = getViewPortSize();
+  const viewPortSize = header.getBoundingClientRect();
   const viewPortSizeRatio = viewPortSize.width / viewPortSize.height;
 
   if (viewPortSizeRatio > ratio) {

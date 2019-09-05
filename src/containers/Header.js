@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
-import React, { useState, memo } from "react";
+import React, { useState, memo, useRef } from "react";
 import Svg from "./Svg";
 import FullScreenGif from "../containers/FullScreenGif";
 import { isIE } from "../dom-utilities";
 
 export default memo(({ socials, background }) => {
   const [gif, setGif] = useState(null);
-
+  const headerRef = useRef();
   return (
-    <header>
+    <header ref={headerRef}>
       <nav>
         <ul>
           {socials.map(
@@ -53,7 +53,7 @@ export default memo(({ socials, background }) => {
           )}
         </ul>
       </nav>
-      <Svg hide={!!gif} background={background} />
+      <Svg headerRef={headerRef} hide={!!gif} background={background} />
       <FullScreenGif gif={gif} />
     </header>
   );
